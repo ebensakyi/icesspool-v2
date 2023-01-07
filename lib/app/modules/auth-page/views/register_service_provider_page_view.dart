@@ -84,7 +84,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
-                    labelText: "company",
+                    labelText: "Company",
                     hintText: "Enter your company name *",
                     prefixIcon: FontAwesomeIcons.building,
                     // obscureText: false,

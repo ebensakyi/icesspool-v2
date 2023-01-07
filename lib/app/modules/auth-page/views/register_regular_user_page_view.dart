@@ -38,7 +38,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
-                    labelText: "labelTesxt",
+                    labelText: "Surname",
                     hintText: "Enter surname *",
                     prefixIcon: Icons.supervised_user_circle_rounded,
                     // obscureText: false,
@@ -47,7 +47,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
-                    labelText: "labelTesxt",
+                    labelText: "Other names",
                     hintText: "Enter other names *",
                     prefixIcon: Icons.supervised_user_circle_rounded,
                     // obscureText: false,
@@ -56,7 +56,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
-                    labelText: "labelTesxt",
+                    labelText: "Phone number",
                     hintText: "Enter phone number *",
                     prefixIcon: Icons.phone_android_outlined,
                     // obscureText: false,
@@ -65,7 +65,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
-                    labelText: "labelTesxt",
+                    labelText: "Email",
                     hintText: "Enter email",
                     prefixIcon: Icons.email_outlined,
                     // obscureText: false,
@@ -74,7 +74,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Obx(() => Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextBox(
-                        labelText: "labelText",
+                        labelText: "Password",
                         hintText: "Enter Password",
                         prefixIcon: Icons.password_outlined,
                         obscureText: controller.isHidden.value,

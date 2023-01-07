@@ -37,7 +37,7 @@ class AuthPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
-                    labelText: "labelTesxt",
+                    labelText: "Phone number",
                     hintText: "Enter Phone Number",
                     prefixIcon: Icons.phone_android_outlined,
                     // obscureText: false,
@@ -46,7 +46,7 @@ class AuthPageView extends GetView<AuthPageController> {
                 Obx(() => Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextBox(
-                        labelText: "labelText",
+                        labelText: "Password",
                         hintText: "Enter Password",
                         prefixIcon: Icons.password_outlined,
                         obscureText: controller.isHidden.value,

@@ -123,8 +123,9 @@ class MakeRequestPageView extends GetView<MakeRequestPageController> {
                               value: controller.selectedRequestType.value,
                               dropdownItems: [
                                 "Septic Tank Emptying",
+                                "Manual Emptying Services",
+                                "Biodigester Services",
                                 "Blockage ",
-                                "Biodigester Services"
                               ].map((var obj) {
                                 return DropdownMenuItem<String>(
                                   value: obj.toString(),
@@ -189,7 +190,7 @@ class MakeRequestPageView extends GetView<MakeRequestPageController> {
                 //   state: _currentStep >= 2 ? StepState.complete : StepState.disabled,
                 // ),
                 Step(
-                  title: new Text('Payment'),
+                  title: new Text('Make Payment'),
                   content: Container(
                     decoration: BoxDecoration(
                       // border: Border.all(width: 3.0),

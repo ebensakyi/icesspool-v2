@@ -1,24 +1,21 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:icesspool_mobilev2/app/modules/client/make-request-page/views/make_request_page_view.dart';
 
-import '../controllers/home_controller.dart';
+import '../controllers/client_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({Key? key}) : super(key: key);
+class ClientView extends GetView<ClientController> {
+  const ClientView({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('HomeView'),
+        title: const Text('ClientView'),
         centerTitle: true,
       ),
-      body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: controller.screens[0],
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
             indicatorColor: Colors.indigo.shade300,
@@ -30,13 +27,14 @@ class HomeView extends GetView<HomeController> {
                     controller.index.value = index,
                 destinations: [
                   NavigationDestination(
-                      icon: Icon(Icons.home_outlined), label: "xx"),
+                      icon: Icon(Icons.new_label_outlined),
+                      label: "Make Request"),
                   NavigationDestination(
-                      icon: Icon(Icons.history), label: "xxx"),
+                      icon: Icon(Icons.history), label: "Transactions"),
                   NavigationDestination(
-                      icon: Icon(Icons.settings_outlined), label: "xxx"),
+                      icon: Icon(Icons.settings_outlined), label: "Settings"),
                   NavigationDestination(
-                      icon: Icon(Icons.info_outline), label: "xxx")
+                      icon: Icon(Icons.info_outline), label: "About")
                 ])),
       ),
     );

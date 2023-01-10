@@ -21,6 +21,8 @@ abstract class Routes {
   static const OTP_PAGE = _Paths.OTP_PAGE;
   static const REQUEST_STATUS_PAGE =
       _Paths.MAKE_REQUEST_PAGE + _Paths.REQUEST_STATUS_PAGE;
+  static const SERVICE_PROVIDER = _Paths.SERVICE_PROVIDER;
+  static const CLIENT = _Paths.CLIENT;
 }
 
 abstract class _Paths {
@@ -42,4 +44,6 @@ abstract class _Paths {
 
   static const OTP_PAGE = '/otp-page';
   static const REQUEST_STATUS_PAGE = '/request-status-page';
+  static const SERVICE_PROVIDER = '/service-provider';
+  static const CLIENT = '/client';
 }

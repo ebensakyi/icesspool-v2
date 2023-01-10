@@ -74,7 +74,7 @@ class AuthPageView extends GetView<AuthPageController> {
                   child: Button(
                     backgroundColor: MyColors.primary1,
                     onPressed: () {
-                      Get.toNamed(Routes.MAKE_REQUEST_PAGE);
+                      Get.toNamed(Routes.CLIENT);
                     },
                     showLoading: false,
                     label: "Login",

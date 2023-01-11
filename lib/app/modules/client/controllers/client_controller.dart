@@ -1,17 +1,18 @@
 import 'package:get/get.dart';
+import 'package:icesspool_mobilev2/app/modules/client/views/about_view.dart';
+import 'package:icesspool_mobilev2/app/modules/client/views/settings_view.dart';
+import 'package:icesspool_mobilev2/app/modules/client/views/transactions_view.dart';
 
 import '../make-request-page/views/make_request_page_view.dart';
+import '../views/make_request_view.dart';
 
 class ClientController extends GetxController {
-  Get.put(MakeRequestPageController());
-
-  final count = 0.obs;
-
   final index = 0.obs;
   final screens = [
-    MakeRequestPageView(),
-    MakeRequestPageView(),
-    MakeRequestPageView(),
+    TransactionsView(),
+    MakeRequestView(),
+    SettingsView(),
+    AboutView()
   ];
 
   @override
@@ -28,6 +29,4 @@ class ClientController extends GetxController {
   void onClose() {
     super.onClose();
   }
-
-  void increment() => count.value++;
 }

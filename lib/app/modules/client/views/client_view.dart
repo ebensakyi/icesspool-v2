@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:icesspool_mobilev2/app/modules/client/make-request-page/views/make_request_page_view.dart';
 
 import '../controllers/client_controller.dart';
 
@@ -11,11 +10,12 @@ class ClientView extends GetView<ClientController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ClientView'),
-        centerTitle: true,
-      ),
-      body: controller.screens[0],
+      // appBar: AppBar(
+      //   title: Text("${controller.index.value}"),
+      //   centerTitle: true,
+      // ),
+      body: Obx(
+          () => Container(child: controller.screens[controller.index.value])),
       bottomNavigationBar: NavigationBarTheme(
         data: NavigationBarThemeData(
             indicatorColor: Colors.indigo.shade300,
@@ -28,7 +28,7 @@ class ClientView extends GetView<ClientController> {
                 destinations: [
                   NavigationDestination(
                       icon: Icon(Icons.new_label_outlined),
-                      label: "Make Request"),
+                      label: "Make sRequest"),
                   NavigationDestination(
                       icon: Icon(Icons.history), label: "Transactions"),
                   NavigationDestination(

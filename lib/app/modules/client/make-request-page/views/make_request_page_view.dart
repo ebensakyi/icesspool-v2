@@ -19,7 +19,7 @@ class MakeRequestPageView extends GetView<MakeRequestPageController> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Make Request'),
+        title: const Text('Make Request1'),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         foregroundColor: MyColors.primary1,

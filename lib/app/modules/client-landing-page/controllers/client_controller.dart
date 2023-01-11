@@ -2,8 +2,15 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:icesspool_mobilev2/app/modules/client-landing-page/views/about_view.dart';
+import 'package:icesspool_mobilev2/app/modules/client-landing-page/views/settings_view.dart';
+import 'package:icesspool_mobilev2/app/modules/client-landing-page/views/transactions_view.dart';
+import 'package:icesspool_mobilev2/app/modules/make-request-page/views/make_request_page_view.dart';
+import 'package:icesspool_mobilev2/app/modules/transaction-history-page/views/transaction_history_page_view.dart';
 
-class MakeRequestPageController extends GetxController {
+import '../views/make_request_view.dart';
+
+class ClientController extends GetxController {
   final currentStep = 0.obs;
   final count = 0.obs;
   StepperType stepperType = StepperType.vertical;
@@ -11,9 +18,17 @@ class MakeRequestPageController extends GetxController {
   final formKey = new GlobalKey<FormState>();
 
   final selectedRequestType = "".obs;
+  final index = 0.obs;
+  final screens = [
+    MakeRequestPageView(),
+    TransactionHistoryPageView(),
+    SettingsView(),
+    AboutView()
+  ];
 
   @override
   void onInit() {
+    log("cc init");
     super.onInit();
   }
 
@@ -34,7 +49,6 @@ class MakeRequestPageController extends GetxController {
   }
 
   tapped(int step) {
-    inspect(step);
     currentStep.value = step;
   }
 

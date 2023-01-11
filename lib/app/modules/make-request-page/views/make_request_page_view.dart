@@ -13,17 +13,22 @@ import '../../../../../widgets/dropdown.dart';
 import '../controllers/make_request_page_controller.dart';
 
 class MakeRequestPageView extends GetView<MakeRequestPageController> {
-  MakeRequestPageView({Key? key}) : super(key: key);
+  const MakeRequestPageView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   automaticallyImplyLeading: false,
+      //   title: const Text('Make Request1'),
+      //   centerTitle: true,
+      //   backgroundColor: Colors.transparent,
+      //   foregroundColor: MyColors.primary1,
+      //   elevation: 0,
+      // ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: const Text('Make Request1'),
+        title: const Text('Make Request'),
         centerTitle: true,
-        backgroundColor: Colors.transparent,
-        foregroundColor: MyColors.primary1,
-        elevation: 0,
       ),
       body: Obx(
         () => Stepper(
@@ -232,7 +237,11 @@ class MakeRequestPageView extends GetView<MakeRequestPageController> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceAround,
                         children: [
-                          Checkbox(value: false, onChanged: null),
+                          Checkbox(
+                              value: controller.selectedAxle.value,
+                              onChanged: (value) {
+                                controller.selectedAxle.value = value!;
+                              }),
                           Image.asset(
                             "assets/images/tanker.png",
                             width: 24,

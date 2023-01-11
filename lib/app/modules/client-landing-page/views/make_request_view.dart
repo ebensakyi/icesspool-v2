@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:icesspool_mobilev2/app/modules/client/controllers/client_controller.dart';
+import 'package:icesspool_mobilev2/app/modules/client-landing-page/controllers/client_controller.dart';
 import '../../../../../core/validator.dart';
 import '../../../../../widgets/dropdown.dart';
 import '../../../../../widgets/text-box.dart';
 
 import 'package:get/get.dart';
-
-import '../make-request-page/controllers/make_request_page_controller.dart';
 
 class MakeRequestView extends GetView<ClientController> {
   const MakeRequestView({Key? key}) : super(key: key);

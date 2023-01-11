@@ -11,7 +11,7 @@ class TransactionHistoryPageView
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('TransactionHistoryPageView'),
+        title: const Text('TransactionHistory PageView-new'),
         centerTitle: true,
       ),
       body: Center(

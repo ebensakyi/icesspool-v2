@@ -26,14 +26,14 @@ class ClientView extends GetView<ClientController> {
               children: [
                 MakeRequestView(),
                 TransactionHistoryView(),
-                AboutView(),
                 SettingsView(),
+                AboutView(),
               ],
             ),
           ),
           bottomNavigationBar: CustomAnimatedBottomBar(
             containerHeight: 70,
-            backgroundColor: Colors.white,
+            backgroundColor: Colors.grey.shade100,
             selectedIndex: controller.tabIndex,
             showElevation: true,
             itemCornerRadius: 24,
@@ -41,9 +41,9 @@ class ClientView extends GetView<ClientController> {
             onItemSelected: (index) => controller.changeTabIndex(index),
             items: <BottomNavyBarItem>[
               BottomNavyBarItem(
-                icon: Icon(Icons.apps),
-                title: Text('Home'),
-                activeColor: Colors.green,
+                icon: Icon(Icons.add),
+                title: Text('Request'),
+                activeColor: Colors.indigoAccent,
                 inactiveColor: controller.inactiveColor.value,
                 textAlign: TextAlign.center,
               ),
@@ -55,18 +55,18 @@ class ClientView extends GetView<ClientController> {
                 textAlign: TextAlign.center,
               ),
               BottomNavyBarItem(
-                icon: Icon(Icons.message),
-                title: Text(
-                  'Messages ',
-                ),
-                activeColor: Colors.pink,
+                icon: Icon(Icons.settings),
+                title: Text('Settings'),
+                activeColor: Colors.blue,
                 inactiveColor: controller.inactiveColor.value,
                 textAlign: TextAlign.center,
               ),
               BottomNavyBarItem(
-                icon: Icon(Icons.settings),
-                title: Text('Settings'),
-                activeColor: Colors.blue,
+                icon: Icon(Icons.help_outline),
+                title: Text(
+                  'About ',
+                ),
+                activeColor: Colors.blueGrey,
                 inactiveColor: controller.inactiveColor.value,
                 textAlign: TextAlign.center,
               ),

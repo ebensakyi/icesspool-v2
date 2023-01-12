@@ -27,6 +27,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
       // ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
+        backgroundColor: Colors.indigo,
         title: const Text('Make Request'),
         centerTitle: true,
       ),

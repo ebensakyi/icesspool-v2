@@ -2,8 +2,8 @@ import 'dart:developer';
 
 import 'package:get/get.dart';
 
-class TransactionHistoryPageController extends GetxController {
-  //TODO: Implement TransactionHistoryPageController
+class TransactionHistoryController extends GetxController {
+  //TODO: Implement TransactionHistoryController
 
   final count = 0.obs;
   @override

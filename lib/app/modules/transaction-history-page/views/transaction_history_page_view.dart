@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../controllers/transaction_history_page_controller.dart';
 
-class TransactionHistoryView extends GetView<TransactionHistoryPageController> {
+class TransactionHistoryView extends GetView<TransactionHistoryController> {
   const TransactionHistoryView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {

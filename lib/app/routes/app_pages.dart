@@ -80,7 +80,7 @@ class AppPages {
     GetPage(
       name: _Paths.TRANSACTION_HISTORY_PAGE,
       page: () => TransactionHistoryView(),
-      binding: TransactionHistoryPageBinding(),
+      binding: TransactionHistoryBinding(),
     ),
     GetPage(
       name: _Paths.LOGIN_PAGE,

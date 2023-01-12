@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:icesspool_mobilev2/app/modules/transaction-history-page/controllers/transaction_history_page_controller.dart';
 
 import '../../make-request-page/controllers/make_request_page_controller.dart';
 import '../controllers/client_controller.dart';
@@ -13,5 +14,13 @@ class ClientBinding extends Bindings {
     Get.lazyPut<MakeRequestPageController>(
       () => MakeRequestPageController(),
     );
+
+    Get.lazyPut<TransactionHistoryPageController>(
+      () => TransactionHistoryPageController(),
+    );
+
+    //    Get.lazyPut<MakeRequestPageController>(
+    //   () => MakeRequestPageController(),
+    // );
   }
 }

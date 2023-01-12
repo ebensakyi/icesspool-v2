@@ -12,8 +12,8 @@ import '../../../../../core/validator.dart';
 import '../../../../../widgets/dropdown.dart';
 import '../controllers/make_request_page_controller.dart';
 
-class MakeRequestPageView extends GetView<MakeRequestPageController> {
-  const MakeRequestPageView({Key? key}) : super(key: key);
+class MakeRequestView extends GetView<MakeRequestPageController> {
+  const MakeRequestView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

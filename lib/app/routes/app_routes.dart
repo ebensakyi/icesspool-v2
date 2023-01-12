@@ -23,6 +23,8 @@ abstract class Routes {
       _Paths.MAKE_REQUEST_PAGE + _Paths.REQUEST_STATUS_PAGE;
   static const SERVICE_PROVIDER = _Paths.SERVICE_PROVIDER;
   static const CLIENT = _Paths.CLIENT;
+  static const SETTINGS = _Paths.SETTINGS;
+  static const ABOUT = _Paths.ABOUT;
 }
 
 abstract class _Paths {
@@ -46,4 +48,6 @@ abstract class _Paths {
   static const REQUEST_STATUS_PAGE = '/request-status-page';
   static const SERVICE_PROVIDER = '/service-provider';
   static const CLIENT = '/client';
+  static const SETTINGS = '/settings';
+  static const ABOUT = '/about';
 }

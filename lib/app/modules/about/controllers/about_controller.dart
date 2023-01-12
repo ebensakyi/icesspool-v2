@@ -1,14 +1,11 @@
-import 'dart:developer';
-
 import 'package:get/get.dart';
 
-class TransactionHistoryPageController extends GetxController {
-  //TODO: Implement TransactionHistoryPageController
+class AboutController extends GetxController {
+  //TODO: Implement AboutController
 
   final count = 0.obs;
   @override
   void onInit() {
-    log("TX H  iinit");
     super.onInit();
   }
 

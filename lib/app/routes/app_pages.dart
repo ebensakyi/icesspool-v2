@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/about/bindings/about_binding.dart';
+import '../modules/about/views/about_view.dart';
 import '../modules/auth-page/bindings/auth_page_binding.dart';
 import '../modules/auth-page/views/auth_page_view.dart';
 import '../modules/auth-page/views/login_page_view.dart';
@@ -15,7 +17,6 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/landing-page/bindings/landing_page_binding.dart';
 import '../modules/landing-page/views/landing_page_view.dart';
-
 import '../modules/make-request-page/bindings/make_request_page_binding.dart';
 import '../modules/make-request-page/request-status-page/bindings/request_status_page_binding.dart';
 import '../modules/make-request-page/request-status-page/views/request_status_page_view.dart';
@@ -26,6 +27,8 @@ import '../modules/region-selection-page/bindings/region_selection_page_binding.
 import '../modules/region-selection-page/views/region_selection_page_view.dart';
 import '../modules/service-provider/bindings/service_provider_binding.dart';
 import '../modules/service-provider/views/service_provider_view.dart';
+import '../modules/settings/bindings/settings_binding.dart';
+import '../modules/settings/views/settings_view.dart';
 import '../modules/transaction-history-page/bindings/transaction_history_page_binding.dart';
 import '../modules/transaction-history-page/views/transaction_history_page_view.dart';
 
@@ -64,7 +67,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.MAKE_REQUEST_PAGE,
-      page: () => MakeRequestPageView(),
+      page: () => MakeRequestView(),
       binding: MakeRequestPageBinding(),
       children: [
         GetPage(
@@ -76,7 +79,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.TRANSACTION_HISTORY_PAGE,
-      page: () => TransactionHistoryPageView(),
+      page: () => TransactionHistoryView(),
       binding: TransactionHistoryPageBinding(),
     ),
     GetPage(
@@ -118,6 +121,16 @@ class AppPages {
       name: _Paths.CLIENT,
       page: () => const ClientView(),
       binding: ClientBinding(),
+    ),
+    GetPage(
+      name: _Paths.SETTINGS,
+      page: () => const SettingsView(),
+      binding: SettingsBinding(),
+    ),
+    GetPage(
+      name: _Paths.ABOUT,
+      page: () => const AboutView(),
+      binding: AboutBinding(),
     ),
   ];
 }

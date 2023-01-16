@@ -25,6 +25,8 @@ abstract class Routes {
   static const CLIENT = _Paths.CLIENT;
   static const SETTINGS = _Paths.SETTINGS;
   static const ABOUT = _Paths.ABOUT;
+  static const SERVICE_PROVIDER_LANDING_PAGE =
+      _Paths.SERVICE_PROVIDER_LANDING_PAGE;
 }
 
 abstract class _Paths {
@@ -50,4 +52,5 @@ abstract class _Paths {
   static const CLIENT = '/client';
   static const SETTINGS = '/settings';
   static const ABOUT = '/about';
+  static const SERVICE_PROVIDER_LANDING_PAGE = '/service-provider-landing-page';
 }

@@ -25,6 +25,8 @@ import '../modules/onboarding-page/bindings/onboarding_page_binding.dart';
 import '../modules/onboarding-page/views/onboarding_page_view.dart';
 import '../modules/region-selection-page/bindings/region_selection_page_binding.dart';
 import '../modules/region-selection-page/views/region_selection_page_view.dart';
+import '../modules/service-provider-landing-page/bindings/service_provider_landing_page_binding.dart';
+import '../modules/service-provider-landing-page/views/service_provider_landing_page_view.dart';
 import '../modules/service-provider/bindings/service_provider_binding.dart';
 import '../modules/service-provider/views/service_provider_view.dart';
 import '../modules/settings/bindings/settings_binding.dart';
@@ -131,6 +133,11 @@ class AppPages {
       name: _Paths.ABOUT,
       page: () => const AboutView(),
       binding: AboutBinding(),
+    ),
+    GetPage(
+      name: _Paths.SERVICE_PROVIDER_LANDING_PAGE,
+      page: () => const ServiceProviderLandingPageView(),
+      binding: ServiceProviderLandingPageBinding(),
     ),
   ];
 }

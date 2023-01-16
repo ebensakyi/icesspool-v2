@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class ServiceProviderController extends GetxController {
-  //TODO: Implement ServiceProviderController
+class ServiceProviderLandingPageController extends GetxController {
+  //TODO: Implement ServiceProviderLandingPageController
 
   final count = 0.obs;
   @override

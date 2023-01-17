@@ -10,16 +10,22 @@ class ServiceProviderLandingPageView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('ServiceProviderLandingPageView'),
-        centerTitle: true,
-      ),
-      body: Center(
-        child: Text(
-          'ServiceProviderLandingPageView is working',
-          style: TextStyle(fontSize: 20),
+        appBar: AppBar(
+          title: const Text('ServiceProviderLandingPageView'),
+          centerTitle: true,
         ),
-      ),
-    );
+        body: GridView.count(
+          crossAxisCount: 2, // number of columns
+          children: List.generate(
+            100,
+            (index) {
+              return Center(
+                child: Text(
+                  'Item $index',
+                ),
+              );
+            },
+          ),
+        ));
   }
 }

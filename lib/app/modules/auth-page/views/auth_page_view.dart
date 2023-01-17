@@ -37,6 +37,7 @@ class AuthPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.phoneNumberController,
                     labelText: "Phone number",
                     hintText: "Enter Phone Number",
                     prefixIcon: Icons.phone_android_outlined,
@@ -46,6 +47,7 @@ class AuthPageView extends GetView<AuthPageController> {
                 Obx(() => Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextBox(
+                        controller: controller.passwordController,
                         labelText: "Password",
                         hintText: "Enter Password",
                         prefixIcon: Icons.password_outlined,
@@ -74,7 +76,8 @@ class AuthPageView extends GetView<AuthPageController> {
                   child: Button(
                     backgroundColor: MyColors.primary1,
                     onPressed: () {
-                      Get.toNamed(Routes.CLIENT);
+                      // Get.toNamed(Routes.CLIENT);
+                      controller.handleLogin();
                     },
                     showLoading: false,
                     label: "Login",

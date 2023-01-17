@@ -27,8 +27,7 @@ import '../modules/region-selection-page/bindings/region_selection_page_binding.
 import '../modules/region-selection-page/views/region_selection_page_view.dart';
 import '../modules/service-provider-landing-page/bindings/service_provider_landing_page_binding.dart';
 import '../modules/service-provider-landing-page/views/service_provider_landing_page_view.dart';
-import '../modules/service-provider/bindings/service_provider_binding.dart';
-import '../modules/service-provider/views/service_provider_view.dart';
+
 import '../modules/settings/bindings/settings_binding.dart';
 import '../modules/settings/views/settings_view.dart';
 import '../modules/transaction-history-page/bindings/transaction_history_page_binding.dart';
@@ -113,11 +112,6 @@ class AppPages {
       name: _Paths.OTP_PAGE,
       page: () => const OtpPageView(),
       binding: AuthPageBinding(),
-    ),
-    GetPage(
-      name: _Paths.SERVICE_PROVIDER,
-      page: () => const ServiceProviderView(),
-      binding: ServiceProviderBinding(),
     ),
     GetPage(
       name: _Paths.CLIENT,

@@ -27,9 +27,9 @@ class AuthPageController extends GetxController {
   }
 
   void handleLogin() async {
-    if (passwordController.text == "cccccccc") {
-      Get.toNamed(Routes.CLIENT);
-    } else if (passwordController.text == "pppppppp") {
+    if (passwordController.text == "c") {
+      Get.toNamed(Routes.CLIENT_LANDING_PAGE);
+    } else if (passwordController.text == "p") {
       Get.toNamed(Routes.SERVICE_PROVIDER_LANDING_PAGE);
     }
   }

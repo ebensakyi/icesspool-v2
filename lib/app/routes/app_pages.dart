@@ -114,7 +114,7 @@ class AppPages {
       binding: AuthPageBinding(),
     ),
     GetPage(
-      name: _Paths.CLIENT,
+      name: _Paths.CLIENT_LANDING_PAGE,
       page: () => const ClientView(),
       binding: ClientBinding(),
     ),

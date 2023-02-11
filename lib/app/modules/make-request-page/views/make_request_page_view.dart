@@ -13,7 +13,7 @@ import '../../../../../widgets/dropdown.dart';
 import '../controllers/make_request_page_controller.dart';
 
 class MakeRequestView extends GetView<MakeRequestPageController> {
-  const MakeRequestView({Key? key}) : super(key: key);
+  MakeRequestView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(

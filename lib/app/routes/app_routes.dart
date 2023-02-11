@@ -22,7 +22,7 @@ abstract class Routes {
   static const REQUEST_STATUS_PAGE =
       _Paths.MAKE_REQUEST_PAGE + _Paths.REQUEST_STATUS_PAGE;
   static const SERVICE_PROVIDER = _Paths.SERVICE_PROVIDER;
-  static const CLIENT = _Paths.CLIENT;
+  static const CLIENT_LANDING_PAGE = _Paths.CLIENT_LANDING_PAGE;
   static const SETTINGS = _Paths.SETTINGS;
   static const ABOUT = _Paths.ABOUT;
   static const SERVICE_PROVIDER_LANDING_PAGE =
@@ -49,7 +49,7 @@ abstract class _Paths {
   static const OTP_PAGE = '/otp-page';
   static const REQUEST_STATUS_PAGE = '/request-status-page';
   static const SERVICE_PROVIDER = '/service-provider';
-  static const CLIENT = '/client';
+  static const CLIENT_LANDING_PAGE = '/client-landing-page';
   static const SETTINGS = '/settings';
   static const ABOUT = '/about';
   static const SERVICE_PROVIDER_LANDING_PAGE = '/service-provider-landing-page';

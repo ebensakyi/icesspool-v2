@@ -40,6 +40,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.surnameController,
                     labelText: "Surname",
                     hintText: "Enter surname *",
                     prefixIcon: FontAwesomeIcons.user,
@@ -49,6 +50,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.otherNamesController,
                     labelText: "Other names",
                     hintText: "Enter other names *",
                     prefixIcon: FontAwesomeIcons.user,
@@ -66,7 +68,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                     //         .selectedRespondentDesignation.value),
                     value: controller.selectedRegion.value,
                     dropdownItems:
-                        ["Greater Accra", "Northern  Region"].map((var obj) {
+                        ["Greater Accra", "Northern Region"].map((var obj) {
                       return DropdownMenuItem<String>(
                         value: obj.toString(),
                         child: Text(obj.toString()),
@@ -84,6 +86,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.companyController,
                     labelText: "Company",
                     hintText: "Enter your company name *",
                     prefixIcon: FontAwesomeIcons.building,
@@ -93,6 +96,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.phoneNumberController,
                     labelText: "Phone",
                     hintText: "Enter phone number *",
                     prefixIcon: Icons.phone_android_outlined,
@@ -102,6 +106,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.emailController,
                     labelText: "Email",
                     hintText: "Enter email",
                     prefixIcon: Icons.email_outlined,
@@ -111,6 +116,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                 Obx(() => Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextBox(
+                        controller: controller.passwordController,
                         labelText: "Password",
                         hintText: "Enter Password",
                         prefixIcon: Icons.password_outlined,

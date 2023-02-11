@@ -38,6 +38,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.surnameController,
                     labelText: "Surname",
                     hintText: "Enter surname *",
                     prefixIcon: Icons.supervised_user_circle_rounded,
@@ -47,6 +48,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.otherNamesController,
                     labelText: "Other names",
                     hintText: "Enter other names *",
                     prefixIcon: Icons.supervised_user_circle_rounded,
@@ -56,15 +58,18 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.phoneNumberController,
                     labelText: "Phone number",
                     hintText: "Enter phone number *",
                     prefixIcon: Icons.phone_android_outlined,
+                    keyboardType: TextInputType.phone,
                     // obscureText: false,
                   ),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: TextBox(
+                    controller: controller.emailController,
                     labelText: "Email",
                     hintText: "Enter email",
                     prefixIcon: Icons.email_outlined,
@@ -74,6 +79,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                 Obx(() => Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: TextBox(
+                        controller: controller.passwordController,
                         labelText: "Password",
                         hintText: "Enter Password",
                         prefixIcon: Icons.password_outlined,
@@ -94,7 +100,8 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                   child: Button(
                     backgroundColor: MyColors.primary2,
                     onPressed: () {
-                      Get.toNamed(Routes.OTP_PAGE);
+                      // Get.toNamed(Routes.OTP_PAGE);
+                      controller.handleRegisterRegularUser();
                     },
                     showLoading: false,
                     label: "Register",

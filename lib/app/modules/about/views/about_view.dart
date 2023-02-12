@@ -10,9 +10,10 @@ class AboutView extends GetView<AboutController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AboutView'),
-        backgroundColor: Colors.blueGrey,
+        title: const Text('About'),
+        backgroundColor: Colors.grey,
         centerTitle: true,
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         child: Text(

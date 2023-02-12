@@ -64,7 +64,7 @@ class OtpPageView extends GetView<AuthPageController> {
                   ),
                   SmallButton(
                     onPressed: () {
-                      Get.toNamed(Routes.MAKE_REQUEST_PAGE);
+                      Get.toNamed(Routes.CLIENT_LANDING_PAGE);
                     },
                     showLoading: false,
                     label: "Verify",

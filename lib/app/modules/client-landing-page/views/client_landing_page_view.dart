@@ -9,8 +9,8 @@ import '../../make-request-page/views/make_request_page_view.dart';
 import '../../transaction-history-page/views/transaction_history_page_view.dart';
 import '../controllers/client_controller.dart';
 
-class ClientView extends GetView<ClientController> {
-  const ClientView({Key? key}) : super(key: key);
+class ClientLandingPageView extends GetView<ClientController> {
+  const ClientLandingPageView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

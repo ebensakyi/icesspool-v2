@@ -10,7 +10,7 @@ import '../modules/auth-page/views/register_regular_user_page_view.dart';
 import '../modules/auth-page/views/register_selection_page_view.dart';
 import '../modules/auth-page/views/register_service_provider_page_view.dart';
 import '../modules/client-landing-page/bindings/client_binding.dart';
-import '../modules/client-landing-page/views/client_view.dart';
+import '../modules/client-landing-page/views/client_landing_page_view.dart';
 import '../modules/help-page/bindings/help_page_binding.dart';
 import '../modules/help-page/views/help_page_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -115,7 +115,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.CLIENT_LANDING_PAGE,
-      page: () => const ClientView(),
+      page: () => const ClientLandingPageView(),
       binding: ClientBinding(),
     ),
     GetPage(

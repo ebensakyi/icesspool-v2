@@ -9,10 +9,27 @@ class TransactionHistoryView extends GetView<TransactionHistoryController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Transactions'),
-      //   centerTitle: true,
-      // ),
+      appBar: AppBar(
+        title: const Text(
+          'Transactions',
+          style: TextStyle(
+            color: Colors.indigo,
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Colors.grey.shade50,
+        elevation: 0,
+        // leading: Icon(
+        //   Icons.arrow_back_sharp,
+        //   color: Colors.indigo,
+        // ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.settings),
+            onPressed: () {},
+          ),
+        ],
+      ),
       body: Center(
         child: Text(
           'TransactionHistoryView is working',

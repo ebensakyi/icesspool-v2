@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.icesspool.moobile.icesspool_mobilev2">
+    package="com.icesspool.app">
    <application
         android:label="icesspool_mobilev2"
         android:name="${applicationName}"

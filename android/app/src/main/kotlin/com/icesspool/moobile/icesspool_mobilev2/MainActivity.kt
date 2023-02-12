@@ -1,4 +1,4 @@
-package com.icesspool.moobile.icesspool_mobilev2
+package com.icesspool.app
 
 import io.flutter.embedding.android.FlutterActivity
 

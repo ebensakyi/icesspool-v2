@@ -1,14 +1,13 @@
 import 'dart:convert';
 import 'dart:developer';
-import 'package:http/http.dart' as http;
 
 import 'package:get/get.dart';
 
 import '../../../../core/constants.dart';
+import '../../../routes/app_pages.dart';
 
 class RegistrationProvider extends GetConnect {
   final GetConnect connect = Get.put(GetConnect());
-  var client = http.Client();
 
   // @override
   // void onInit() {
@@ -34,25 +33,14 @@ class RegistrationProvider extends GetConnect {
       'password': password,
     };
     inspect(data);
-    var uri = Uri.parse(Constants.BASE_URL + "/api/v1/auth/client/register");
+    var url = Constants.BASE_URL + "/api/v1/auth/client/register";
 
-    var response = await client.post(
-      uri,
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>{
-        'surname': surname,
-        'otherNames': otherNames,
-        'phoneNumber': phoneNumber,
-        'email': email,
-        'password': password,
-      }),
-    );
+    Response response = await connect.post(url, data);
     log("res $response");
 
     inspect("response");
     if (response.statusCode == 200) {
+      Get.toNamed(Routes.OTP_PAGE);
       return response.body;
     } else {
       return null;
@@ -61,7 +49,17 @@ class RegistrationProvider extends GetConnect {
 
   Future<dynamic> registerServiceProvider(surname, otherNames, phoneNumber,
       email, password, company, region) async {
-    FormData formData = FormData({
+    // FormData formData = FormData({
+    //   'surname': surname,
+    //   'otherNames': otherNames,
+    //   'phoneNumber': phoneNumber,
+    //   'email': email,
+    //   'password': password,
+    //   'company': company,
+    //   'region': region
+    // });
+
+    var data = {
       'surname': surname,
       'otherNames': otherNames,
       'phoneNumber': phoneNumber,
@@ -69,10 +67,11 @@ class RegistrationProvider extends GetConnect {
       'password': password,
       'company': company,
       'region': region
-    });
+    };
 
+    inspect(data);
     Response response = await connect.post(
-        Constants.BASE_URL + "/api/v1/auth/provider/register", formData);
+        Constants.BASE_URL + "/api/v1/auth/provider/register", data);
     if (response.statusCode == 200) {
       return response.body;
     } else {

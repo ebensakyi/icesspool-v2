@@ -137,7 +137,7 @@ class RegisterServiceProviderPageView extends GetView<AuthPageController> {
                   child: Button(
                     backgroundColor: MyColors.primary2,
                     onPressed: () {
-                      // Get.toNamed(Routes.OTP_PAGE);
+                      // s
                       controller.handleRegisterServiceProvider();
                     },
                     showLoading: false,

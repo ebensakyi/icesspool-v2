@@ -13,7 +13,6 @@ class AuthPageController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final companyController = TextEditingController();
-  final region = "".obs;
   final isHidden = true.obs;
 
   final count = 0.obs;
@@ -63,7 +62,7 @@ class AuthPageController extends GetxController {
     var password = passwordController.text;
     var company = companyController.text;
 
-    RegistrationProvider().registerServiceProvider(
-        surname, otherNames, phone, email, password, company, region);
+    RegistrationProvider().registerServiceProvider(surname, otherNames, phone,
+        email, password, company, selectedRegion.value);
   }
 }

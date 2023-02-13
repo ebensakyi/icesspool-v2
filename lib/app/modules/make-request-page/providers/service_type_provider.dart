@@ -13,7 +13,7 @@ class ServiceTypeProvider extends GetConnect {
   //   httpClient.baseUrl = 'YOUR-API-URL';
   // }
 
-  Future<Object> getServices() async {
+  Future<List<ServiceType>> getServices() async {
     var url = Constants.BASE_URL + "/api/v1/admin/service-type";
 
     Response response = await connect.get(url);

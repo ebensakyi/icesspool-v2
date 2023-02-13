@@ -12,17 +12,15 @@ class RequestTypeProvider extends GetConnect {
   // void onInit() {
   //   httpClient.baseUrl = 'YOUR-API-URL';
   // }
-
-  Future getRequests() async {
+  Future<List<RequestType>> getRequests() async {
     var url = Constants.BASE_URL + "/api/v1/admin/request-type";
 
     Response response = await connect.get(url);
 
-    inspect(response);
     if (response.statusCode == 200) {
-      return requestTypeFromJson(response.body);
+      return requestTypeFromJson(response.bodyString.toString());
     } else {
-      return null;
+      return [];
     }
   }
 }

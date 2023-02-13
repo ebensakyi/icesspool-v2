@@ -160,24 +160,23 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
               ),
               content: Column(
                 children: <Widget>[
-                  // Obx(() => Dropdown(
-                  //       onChangedCallback: (newValue) {
-                  //         controller.selectedRequestType.value = newValue;
-                  //       },
-
-                  //       value: controller.selectedRequestType.value,
-                  //       dropdownItems: controller.requestTypes.map((var obj) {
-                  //         return DropdownMenuItem<String>(
-                  //           value: obj.id.toString(),
-                  //           child: Text(obj.name.toString()),
-                  //         );
-                  //       }).toList(),
-                  //       hintText: '',
-                  //       labelText: 'Select request type *',
-                  //       validator: (value) {
-                  //         return Validator.dropdownValidator(value);
-                  //       },
-                  //     )),
+                  Obx(() => Dropdown(
+                        onChangedCallback: (newValue) {
+                          controller.selectedRequestType.value = newValue;
+                        },
+                        value: controller.selectedRequestType.value,
+                        dropdownItems: controller.requestTypes.map((var obj) {
+                          return DropdownMenuItem<String>(
+                            value: obj.id.toString(),
+                            child: Text(obj.name.toString()),
+                          );
+                        }).toList(),
+                        hintText: '',
+                        labelText: 'Select request type *',
+                        validator: (value) {
+                          return Validator.dropdownValidator(value);
+                        },
+                      )),
                   // Obx(() => Visibility(
                   //       visible: true,
                   //       child: Dropdown(

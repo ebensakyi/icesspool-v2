@@ -15,7 +15,7 @@ class MakeRequestPageController extends GetxController {
   final selectedRequestType = "".obs;
   final selectedToiletRequestService = "".obs;
   final selectedWaterRequestService = "".obs;
-  final requestTypes = <RequestType>[].obs;
+  final requestTypes = [].obs;
   final serviceTypes = <ServiceType>[].obs;
 
   final currentStep = 0.obs;
@@ -29,8 +29,12 @@ class MakeRequestPageController extends GetxController {
   @override
   onInit() async {
     // serviceTypes.value = await ServiceTypeProvider().getServices();
-    // requestTypes.value = await RequestTypeProvider().getRequests();
+    requestTypes.value = await RequestTypeProvider().getRequests();
+    var x = await RequestTypeProvider().getRequests();
+    var y = RequestTypeProvider().getRequests();
 
+    inspect(x);
+    inspect(y);
     super.onInit();
   }
 

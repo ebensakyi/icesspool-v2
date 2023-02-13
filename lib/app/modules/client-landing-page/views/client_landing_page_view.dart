@@ -50,7 +50,7 @@ class ClientLandingPageView extends GetView<ClientController> {
               BottomNavyBarItem(
                 icon: Icon(Icons.history_outlined),
                 title: Text('Transactions'),
-                activeColor: Colors.purpleAccent,
+                activeColor: Colors.blue.shade800,
                 inactiveColor: controller.inactiveColor.value,
                 textAlign: TextAlign.center,
               ),

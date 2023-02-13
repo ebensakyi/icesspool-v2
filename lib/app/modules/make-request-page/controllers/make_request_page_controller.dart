@@ -2,21 +2,33 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/request_type_provider.dart';
+import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/service_type_provider.dart';
 
 class MakeRequestPageController extends GetxController {
+  final clientNameController = TextEditingController();
+  final phoneNumberController = TextEditingController();
+  final landmarkController = TextEditingController();
+  final selectedRequestType = "".obs;
+  final selectedToiletRequestService = "".obs;
+  final selectedWaterRequestService = "".obs;
+  final requestTypes = [].obs;
+  final serviceTypes = [].obs;
+
   final currentStep = 0.obs;
   final count = 0.obs;
   StepperType stepperType = StepperType.vertical;
 
   final formKey = new GlobalKey<FormState>();
 
-  final selectedRequestType = "".obs;
-
   final selectedAxle = false.obs;
 
   @override
-  void onInit() {
+  Future<void> onInit() async {
     log("mr init");
+    serviceTypes.value = await ServiceTypeProvider().getServices();
+    requestTypes.value = await RequestTypeProvider().getRequests();
+
     super.onInit();
   }
 
@@ -43,11 +55,16 @@ class MakeRequestPageController extends GetxController {
   }
 
   continued() {
+    log(">>> $currentStep");
+
     if (currentStep < 2) {
       currentStep.value += 1;
     } else {
       //   _submitRequest();
       //  _formSubmitted = true;
+    }
+    if (currentStep == 3) {
+      log("Make Payment");
     }
   }
 

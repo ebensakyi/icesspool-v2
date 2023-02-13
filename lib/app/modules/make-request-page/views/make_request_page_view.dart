@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:icesspool_mobilev2/themes/colors.dart';
@@ -30,6 +31,14 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
         backgroundColor: Colors.indigo,
         title: const Text('Make Request'),
         centerTitle: true,
+        systemOverlayStyle: SystemUiOverlayStyle(
+          // Status bar color
+          statusBarColor: Colors.indigo,
+
+          // Status bar brightness (optional)
+          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+          statusBarBrightness: Brightness.light, // For iOS (dark icons)
+        ),
       ),
       body: Obx(
         () => Stepper(
@@ -42,14 +51,71 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
           onStepTapped: (step) => controller.tapped(step),
           onStepContinue: controller.continued,
           onStepCancel: controller.cancel,
+          controlsBuilder: (context, _) {
+            return Row(
+              children: <Widget>[
+                controller.currentStep < 2
+                    ? Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(color: Colors.indigo),
+                          height: 35,
+                          child: TextButton(
+                            onPressed: () {
+                              controller.continued();
+                            },
+                            child: Text(
+                              'Continue',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      )
+                    : Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Container(
+                          decoration: BoxDecoration(color: Colors.indigo),
+                          height: 35,
+                          child: TextButton(
+                            onPressed: () {
+                              controller.continued();
+                            },
+                            child: Text(
+                              'Make Payment',
+                              style: TextStyle(color: Colors.white),
+                            ),
+                          ),
+                        ),
+                      ),
+                TextButton(
+                  onPressed: () {
+                    controller.cancel();
+                  },
+                  child: const Text(
+                    'Cancel',
+                    style: TextStyle(color: Colors.blue),
+                  ),
+                ),
+              ],
+            );
+          },
           steps: <Step>[
             Step(
+              subtitle: Text('Enter personal info here'),
               title: const Text('Personal Info'),
               content: Column(
                 children: <Widget>[
-                  TextBox(labelText: "Enter your name or company"),
-                  TextBox(labelText: "Enter phone number"),
-                  TextBox(labelText: "Enter location detail/landmark")
+                  TextBox(
+                    labelText: "Enter your name or company",
+                    controller: controller.clientNameController,
+                  ),
+                  TextBox(
+                    labelText: "Enter phone number",
+                    controller: controller.phoneNumberController,
+                  ),
+                  TextBox(
+                      labelText: "Enter location detail/landmark",
+                      controller: controller.landmarkController)
                   // TextFormField(
                   //   decoration: const InputDecoration(
                   //     labelText: 'Enter name of sender',
@@ -102,15 +168,10 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                         //     basicInfoSectionController
                         //         .selectedRespondentDesignation.value),
                         value: controller.selectedRequestType.value,
-                        dropdownItems: [
-                          "Request for water",
-                          "Toilet desludging"
-                        ].map((var obj) {
+                        dropdownItems: controller.requestTypes.map((var obj) {
                           return DropdownMenuItem<String>(
-                            value: obj.toString(),
-                            child: Text(obj.toString()),
-                            // value: obj.id.toString(),
-                            // child: Text(obj.name.toString()),
+                            value: obj.id.toString(),
+                            child: Text(obj.name.toString()),
                           );
                         }).toList(),
                         hintText: '',
@@ -129,17 +190,10 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                           //     basicInfoSectionController
                           //         .selectedRespondentDesignation.value),
                           value: controller.selectedRequestType.value,
-                          dropdownItems: [
-                            "Septic Tank Emptying",
-                            "Manual Emptying Services",
-                            "Biodigester Services",
-                            "Blockage ",
-                          ].map((var obj) {
+                          dropdownItems: controller.serviceTypes.map((var obj) {
                             return DropdownMenuItem<String>(
-                              value: obj.toString(),
-                              child: Text(obj.toString()),
-                              // value: obj.id.toString(),
-                              // child: Text(obj.name.toString()),
+                              value: obj.id.toString(),
+                              child: Text(obj.name.toString()),
                             );
                           }).toList(),
                           hintText: '',

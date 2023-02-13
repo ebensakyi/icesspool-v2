@@ -5,6 +5,9 @@ import 'package:get/get.dart';
 import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/request_type_provider.dart';
 import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/service_type_provider.dart';
 
+import '../model/RequestType.dart';
+import '../model/ServiceType.dart';
+
 class MakeRequestPageController extends GetxController {
   final clientNameController = TextEditingController();
   final phoneNumberController = TextEditingController();
@@ -12,8 +15,8 @@ class MakeRequestPageController extends GetxController {
   final selectedRequestType = "".obs;
   final selectedToiletRequestService = "".obs;
   final selectedWaterRequestService = "".obs;
-  final requestTypes = [].obs;
-  final serviceTypes = [].obs;
+  final requestTypes = <RequestType>[].obs;
+  final serviceTypes = <ServiceType>[].obs;
 
   final currentStep = 0.obs;
   final count = 0.obs;
@@ -24,17 +27,15 @@ class MakeRequestPageController extends GetxController {
   final selectedAxle = false.obs;
 
   @override
-  Future<void> onInit() async {
-    log("mr init");
-    serviceTypes.value = await ServiceTypeProvider().getServices();
-    requestTypes.value = await RequestTypeProvider().getRequests();
+  onInit() async {
+    // serviceTypes.value = await ServiceTypeProvider().getServices();
+    // requestTypes.value = await RequestTypeProvider().getRequests();
 
     super.onInit();
   }
 
   @override
   void onReady() {
-    log("mr ready");
     super.onReady();
   }
 

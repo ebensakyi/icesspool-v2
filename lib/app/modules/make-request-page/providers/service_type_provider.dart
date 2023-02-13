@@ -8,21 +8,23 @@ import '../model/ServiceType.dart';
 class ServiceTypeProvider extends GetConnect {
   final GetConnect connect = Get.put(GetConnect());
 
-  @override
-  void onInit() {
-    httpClient.baseUrl = 'YOUR-API-URL';
-  }
+  // @override
+  // void onInit() {
+  //   httpClient.baseUrl = 'YOUR-API-URL';
+  // }
 
-  Future getServices() async {
+  Future<Object> getServices() async {
     var url = Constants.BASE_URL + "/api/v1/admin/service-type";
 
     Response response = await connect.get(url);
 
-    inspect(response);
+    var res = serviceTypeFromJson(response.body);
+    inspect(res);
     if (response.statusCode == 200) {
+      log("here");
       return serviceTypeFromJson(response.body);
     } else {
-      return null;
+      return [];
     }
   }
 }

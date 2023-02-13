@@ -7,10 +7,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'app/routes/app_pages.dart';
 
 void main() {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-    statusBarColor: Colors.transparent,
-    statusBarBrightness: Brightness.dark,
-  ));
+  // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+  //   statusBarColor: Colors.transparent,
+  //   statusBarBrightness: Brightness.dark,
+  // ));
   runApp(
     GetMaterialApp(
       theme: ThemeData(

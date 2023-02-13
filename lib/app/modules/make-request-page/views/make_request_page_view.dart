@@ -160,80 +160,45 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
               ),
               content: Column(
                 children: <Widget>[
-                  Obx(() => Dropdown(
-                        onChangedCallback: (newValue) {
-                          controller.selectedRequestType.value = newValue;
-                        },
-                        // initialValue: basicInfoSectionController.returnValue(
-                        //     basicInfoSectionController
-                        //         .selectedRespondentDesignation.value),
-                        value: controller.selectedRequestType.value,
-                        dropdownItems: controller.requestTypes.map((var obj) {
-                          return DropdownMenuItem<String>(
-                            value: obj.id.toString(),
-                            child: Text(obj.name.toString()),
-                          );
-                        }).toList(),
-                        hintText: '',
-                        labelText: 'Select request type *',
-                        validator: (value) {
-                          return Validator.dropdownValidator(value);
-                        },
-                      )),
-                  Obx(() => Visibility(
-                        visible: true,
-                        child: Dropdown(
-                          onChangedCallback: (newValue) {
-                            controller.selectedRequestType.value = newValue;
-                          },
-                          // initialValue: basicInfoSectionController.returnValue(
-                          //     basicInfoSectionController
-                          //         .selectedRespondentDesignation.value),
-                          value: controller.selectedRequestType.value,
-                          dropdownItems: controller.serviceTypes.map((var obj) {
-                            return DropdownMenuItem<String>(
-                              value: obj.id.toString(),
-                              child: Text(obj.name.toString()),
-                            );
-                          }).toList(),
-                          hintText: '',
-                          labelText: 'Select toilet service type *',
-                          validator: (value) {
-                            return Validator.dropdownValidator(value);
-                          },
-                        ),
-                      )),
-                  // TextFormField(
-                  //   decoration: InputDecoration(
-                  //     labelText: 'Enter name of recipient',
-                  //     icon: Icon(Icons.person),
-                  //   ),
-                  //   controller: _recepientNameController,
-                  // ),
-                  // TextFormField(
-                  //   decoration: InputDecoration(
-                  //     labelText: 'Enter phone number',
-                  //     icon: Icon(Icons.phone),
-                  //   ),
-                  //   keyboardType: TextInputType.number,
-                  //   controller: _recepientPhoneNumberController,
-                  // ),
-                  // TextFormField(
-                  //   decoration: InputDecoration(
-                  //     labelText: 'Choose delivery location',
-                  //     icon: Icon(Icons.location_pin),
-                  //   ),
-                  //   controller: _deliveryLocationController,
-                  // ),
-                  // TextFormField(
-                  //   keyboardType: TextInputType.multiline,
-                  //   maxLines: null,
-                  //   decoration: InputDecoration(
-                  //     labelText: 'Enter item details and any additional details',
-                  //     icon: Icon(Icons.list),
-                  //   ),
-                  //   controller: _detailsController,
-                  // ),
+                  // Obx(() => Dropdown(
+                  //       onChangedCallback: (newValue) {
+                  //         controller.selectedRequestType.value = newValue;
+                  //       },
+
+                  //       value: controller.selectedRequestType.value,
+                  //       dropdownItems: controller.requestTypes.map((var obj) {
+                  //         return DropdownMenuItem<String>(
+                  //           value: obj.id.toString(),
+                  //           child: Text(obj.name.toString()),
+                  //         );
+                  //       }).toList(),
+                  //       hintText: '',
+                  //       labelText: 'Select request type *',
+                  //       validator: (value) {
+                  //         return Validator.dropdownValidator(value);
+                  //       },
+                  //     )),
+                  // Obx(() => Visibility(
+                  //       visible: true,
+                  //       child: Dropdown(
+                  //         onChangedCallback: (newValue) {
+                  //           controller.selectedRequestType.value = newValue;
+                  //         },
+
+                  //         value: controller.selectedRequestType.value,
+                  //         dropdownItems: controller.serviceTypes.map((var obj) {
+                  //           return DropdownMenuItem<String>(
+                  //             value: obj.id.toString(),
+                  //             child: Text(obj.name.toString()),
+                  //           );
+                  //         }).toList(),
+                  //         hintText: '',
+                  //         labelText: 'Select toilet service type *',
+                  //         validator: (value) {
+                  //           return Validator.dropdownValidator(value);
+                  //         },
+                  //       ),
+                  //     )),
                 ],
               ),
               isActive: controller.currentStep >= 0,

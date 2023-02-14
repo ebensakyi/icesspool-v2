@@ -18,11 +18,8 @@ class ServiceTypeProvider extends GetConnect {
 
     Response response = await connect.get(url);
 
-    var res = serviceTypeFromJson(response.body);
-    inspect(res);
     if (response.statusCode == 200) {
-      log("here");
-      return serviceTypeFromJson(response.body);
+      return serviceTypeFromJson(response.bodyString.toString());
     } else {
       return [];
     }

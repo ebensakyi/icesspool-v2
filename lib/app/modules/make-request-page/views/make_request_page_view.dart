@@ -228,133 +228,134 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                     Radius.circular(10.0),
                   ),
                 ),
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Checkbox(value: false, onChanged: null),
-                          Image.asset(
-                            "assets/images/tanker.png",
-                            width: 24,
-                          ),
-                          Text(
-                            "Single axle",
-                            style: TextStyle(color: Colors.black54),
-                          ),
-                          Text(
-                            "GHS 100 per trip",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Checkbox(
-                              value: controller.selectedAxle.value,
-                              onChanged: (value) {
-                                controller.selectedAxle.value = value!;
-                              }),
-                          Image.asset(
-                            "assets/images/tanker.png",
-                            width: 24,
-                          ),
-                          Text(
-                            "Medium axle",
-                            style: TextStyle(color: Colors.black54),
-                          ),
-                          Text(
-                            "GHS 200 per trip",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(4.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceAround,
-                        children: [
-                          Checkbox(value: false, onChanged: null),
-                          Image.asset(
-                            "assets/images/tanker.png",
-                            width: 24,
-                          ),
-                          Text(
-                            "Double axle",
-                            style: TextStyle(
-                              color: Colors.black54,
-                            ),
-                          ),
-                          Text(
-                            "GHS 300 per trip",
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 16),
-                          ),
-                        ],
-                      ),
-                    ),
-                    // SizedBox(
-                    //   height: 20,
-                    // ),
-                    // Container(
-                    //   alignment: Alignment.centerLeft,
-                    //   child: Text(
-                    //     'Who is paying for the service?',
-                    //     // style: TextStyle(fontSize: 21),
-                    //   ),
-                    // ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      children: <Widget>[
-                        // Radio(
-                        //   value: 1,
-                        //   groupValue: _payerId,
-                        //   onChanged: (val) {
-                        //     setState(() {
-                        //       payerRadioButtonItem = 'I will pay for it';
-                        //       _payerId = 1;
-                        //     });
-                        //   },
-                        // ),
-                        // Text(
-                        //   'I will pay for it',
-                        //   style: new TextStyle(fontSize: 12.0),
-                        // ),
-                        // Radio(
-                        //   value: 2,
-                        //   groupValue: _payerId,
-                        //   onChanged: (val) {
-                        //     setState(() {
-                        //       payerRadioButtonItem = 'Receiver would pay';
-                        //       _payerId = 2;
-                        //     });
-                        //   },
-                        // ),
-                        // Text(
-                        //   'Receiver would pay',
-                        //   style: new TextStyle(
-                        //     fontSize: 12.0,
-                        //   ),
-                        // ),
-                      ],
-                    ),
-                  ],
-                ),
+                child: controller.buildPricing(),
+                //  Column(
+                //   children: <Widget>[
+//                       padding: const EdgeInsets.all(4.0),
+//                       child: Row(
+//                         mainAxisAlignment: MainAxisAlignment.spaceAround,
+//                         children: [
+//                           Checkbox(value: false, onChanged: null),
+//                           Image.asset(
+//                             "assets/images/tanker.png",
+//                             width: 24,
+//                           ),
+//                           Text(
+//                             "Single axle",
+//                             style: TextStyle(color: Colors.black54),
+//                           ),
+//                           Text(
+//                             "GHS 100 per trip",
+//                             style: TextStyle(
+//                                 color: Colors.black,
+//                                 fontWeight: FontWeight.bold,
+//                                 fontSize: 16),
+//                           ),
+//                         ],
+//                       ),
+//                     );
+
+                // Padding(
+                //   padding: const EdgeInsets.all(4.0),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //     children: [
+                //       Checkbox(
+                //           value: controller.selectedAxle.value,
+                //           onChanged: (value) {
+                //             controller.selectedAxle.value = value!;
+                //           }),
+                //       Image.asset(
+                //         "assets/images/tanker.png",
+                //         width: 24,
+                //       ),
+                //       Text(
+                //         "Medium axle",
+                //         style: TextStyle(color: Colors.black54),
+                //       ),
+                //       Text(
+                //         "GHS 200 per trip",
+                //         style: TextStyle(
+                //             color: Colors.black,
+                //             fontWeight: FontWeight.bold,
+                //             fontSize: 16),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // Padding(
+                //   padding: const EdgeInsets.all(4.0),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //     children: [
+                //       Checkbox(value: false, onChanged: null),
+                //       Image.asset(
+                //         "assets/images/tanker.png",
+                //         width: 24,
+                //       ),
+                //       Text(
+                //         "Double axle",
+                //         style: TextStyle(
+                //           color: Colors.black54,
+                //         ),
+                //       ),
+                //       Text(
+                //         "GHS 300 per trip",
+                //         style: TextStyle(
+                //             color: Colors.black,
+                //             fontWeight: FontWeight.bold,
+                //             fontSize: 16),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                // SizedBox(
+                //   height: 20,
+                // ),
+                // Container(
+                //   alignment: Alignment.centerLeft,
+                //   child: Text(
+                //     'Who is paying for the service?',
+                //     // style: TextStyle(fontSize: 21),
+                //   ),
+                // ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.start,
+                //   children: <Widget>[
+                // Radio(
+                //   value: 1,
+                //   groupValue: _payerId,
+                //   onChanged: (val) {
+                //     setState(() {
+                //       payerRadioButtonItem = 'I will pay for it';
+                //       _payerId = 1;
+                //     });
+                //   },
+                // ),
+                // Text(
+                //   'I will pay for it',
+                //   style: new TextStyle(fontSize: 12.0),
+                // ),
+                // Radio(
+                //   value: 2,
+                //   groupValue: _payerId,
+                //   onChanged: (val) {
+                //     setState(() {
+                //       payerRadioButtonItem = 'Receiver would pay';
+                //       _payerId = 2;
+                //     });
+                //   },
+                // ),
+                // Text(
+                //   'Receiver would pay',
+                //   style: new TextStyle(
+                //     fontSize: 12.0,
+                //   ),
+                // ),
+                //     ],
+                //   ),
+                // ],
+                // ),
               ),
               isActive: controller.currentStep >= 0,
               state: controller.currentStep >= 2

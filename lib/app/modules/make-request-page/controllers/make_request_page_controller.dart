@@ -178,7 +178,7 @@ class MakeRequestPageController extends GetxController {
   //   return children;
   // }
 
-  ListView buildPricing() {
+  buildPricing() {
     return ListView(
       padding: const EdgeInsets.all(8),
       children: new List.generate(

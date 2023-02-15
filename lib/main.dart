@@ -14,7 +14,7 @@ void main() {
   runApp(
     GetMaterialApp(
       theme: ThemeData(
-        primarySwatch: Colors.indigo,
+        // primarySwatch: Colors.indigo,
         textTheme: GoogleFonts.nanumPenScriptTextTheme()
             .apply(bodyColor: Colors.grey.shade700),
       ),

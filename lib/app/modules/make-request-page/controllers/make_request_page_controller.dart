@@ -10,6 +10,7 @@ import 'package:icesspool_mobilev2/core/uuid_gen.dart';
 
 import '../model/RequestType.dart';
 import '../model/ServiceType.dart';
+import '../providers/make_request_provider.dart';
 import '../providers/price_provider.dart';
 
 class MakeRequestPageController extends GetxController {
@@ -24,6 +25,7 @@ class MakeRequestPageController extends GetxController {
   final clientNameController = TextEditingController();
   final phoneNumberController = TextEditingController();
   final landmarkController = TextEditingController();
+  final tripsNumberController = TextEditingController();
   final selectedRequestType = "".obs;
   final selectedToiletRequestService = "".obs;
   final selectedWaterRequestService = "".obs;
@@ -219,4 +221,19 @@ class MakeRequestPageController extends GetxController {
   }
 
   selectPricing() {}
+
+  void makeRequest() async {
+    var data = {
+      "clientId": 1,
+      "landMark": landmarkController.text,
+      "gpsAccuracy": accuracy.value,
+      "lat": latitude.value,
+      "lng": longitude.value,
+      "truckClassificationId": req.body.truckClass,
+      trips: req.body.trips,
+      currentStatus: req.body.currentStatus,
+      serviceTypeId: req.body.serviceTypeId,
+    };
+    await MakeRequestProvider().makeRequest(data);
+  }
 }

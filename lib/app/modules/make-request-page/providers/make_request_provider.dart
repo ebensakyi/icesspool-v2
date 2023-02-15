@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 
 import '../../../../core/constants.dart';
 
-class PriceProvider extends GetConnect {
+class MakeRequestProvider extends GetConnect {
   final GetConnect connect = Get.put(GetConnect());
 
   // @override
@@ -12,7 +12,9 @@ class PriceProvider extends GetConnect {
   //   httpClient.baseUrl = 'YOUR-API-URL';
   // }
   Future makeRequest(data) async {
-    var url = Constants.BASE_URL + "/api/v1/client/make-request";
+    var url = Constants.BASE_URL +
+        "/api/v1/client/make-request/toilet-service-request";
+    inspect(data);
 
     Response response = await connect.post(url, data);
 

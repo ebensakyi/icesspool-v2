@@ -220,19 +220,21 @@ class MakeRequestPageController extends GetxController {
     // ),
   }
 
-  selectPricing() {}
-
   void makeRequest() async {
+    int unitCost = int.parse(selectedCost.value.toString()) *
+        int.parse(tripsNumberController.text.toString());
     var data = {
+      "id": "mbvgchvjbknmko,olikjhg",
       "clientId": 1,
       "landMark": landmarkController.text,
+      "clientName": clientNameController.text,
       "gpsAccuracy": accuracy.value,
       "lat": latitude.value,
       "lng": longitude.value,
-      "truckClassificationId": req.body.truckClass,
-      trips: req.body.trips,
-      currentStatus: req.body.currentStatus,
-      serviceTypeId: req.body.serviceTypeId,
+      "truckClass": 1,
+      "trips": tripsNumberController.text,
+      "actualTotalCost": selectedCost.value,
+      "unitCost": unitCost,
     };
     await MakeRequestProvider().makeRequest(data);
   }

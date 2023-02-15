@@ -32,13 +32,13 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
         title: const Text('Make Request'),
         centerTitle: true,
         systemOverlayStyle: SystemUiOverlayStyle(
-          // Status bar color
-          statusBarColor: Colors.indigo,
+            // Status bar color
+            // statusBarColor: Colors.indigo,
 
-          // Status bar brightness (optional)
-          statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
-          statusBarBrightness: Brightness.light, // For iOS (dark icons)
-        ),
+            // Status bar brightness (optional)
+            // statusBarIconBrightness: Brightness.dark, // For Android (dark icons)
+            // statusBarBrightness: Brightness.light, // For iOS (dark icons)
+            ),
       ),
       body: Obx(
         () => Stepper(
@@ -219,33 +219,82 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
             //   state: _currentStep >= 2 ? StepState.complete : StepState.disabled,
             // ),
             Step(
-              title: new Text('Make Payment'),
+              title: new Text('Choose Truck Type'),
               content: Container(
                 decoration: BoxDecoration(
                   // border: Border.all(width: 3.0),
-                  color: Color.fromARGB(197, 246, 208, 142),
+                  color: Color.fromARGB(197, 249, 221, 172),
                   borderRadius: BorderRadius.all(
                     Radius.circular(10.0),
                   ),
                 ),
                 child: Column(
                   children: controller.pricing
-                      .map<Widget>((price) => ExpansionTile(
-                            title: Text(price.name.toString()),
-                            children: [
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text(price.volume),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('${price.cost}',
-                                    style: TextStyle(fontSize: 11)),
-                              ),
-                            ],
-                          ))
+                      .map<Widget>(
+                        (obj) => GetBuilder<MakeRequestPageController>(
+                          builder: (_) => CheckboxListTile(
+                            title: Row(
+                              children: [
+                                new Text(obj.name.toString()),
+                                Text(' GHS ${obj.cost.toString()}'),
+                                Text('  ${obj.volume.toString()} m3')
+                              ],
+                            ),
+                            onChanged: (bool? value) {
+                              obj.isChecked = value!;
+                              controller.update();
+                              controller.selectedCost.value = obj.cost;
+                              log(obj.cost.toString());
+                            },
+                            value: obj.isChecked,
+                          ),
+                        ),
+                      )
                       .toList(),
                 ),
+
+                // child: Dropdown(
+                //   onChangedCallback: (newValue) {
+                //     controller.selectedRequestType.value = newValue;
+                //   },
+                //   value: controller.selectedRequestType.value,
+                //   dropdownItems: controller.pricing.map((var obj) {
+                //     return DropdownMenuItem<String>(
+                //       value: obj.cost.toString(),
+                //       child: Text(
+                //           obj.name.toString() + " GHS " + obj.cost.toString()),
+                //     );
+                //   }).toList(),
+                //   hintText: '',
+                //   labelText: 'Select truck type *',
+                //   validator: (value) {
+                //     return Validator.dropdownValidator(value);
+                //   },
+                // ),
+                // child: Column(
+                //   children: controller.pricing
+                //       .map<Widget>(
+                //         (price) => ListTile(
+                //           leading: Text(
+                //             price.name.toString(),
+                //             style: TextStyle(
+                //                 fontSize: 14,
+                //                 color: Colors.black,
+                //                 fontWeight: FontWeight.bold),
+                //           ),
+                //           subtitle: Text(
+                //               'GHS ${price.cost.toString()} per trip for  ${price.volume.toString()} m3',
+                //               style: TextStyle(fontSize: 14)),
+                //           trailing: Checkbox(
+                //               value: controller.isChecked.value,
+                //               onChanged: (bool? newValue) {
+                //                 controller.isChecked.value =
+                //                     !controller.isChecked.value;
+                //               }),
+                //         ),
+                //       )
+                //       .toList(),
+                // ),
               ),
               isActive: controller.currentStep >= 0,
               state: controller.currentStep >= 2
@@ -261,4 +310,3 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
 
 // int currentStep = 0;
 // bool completed = false;
-

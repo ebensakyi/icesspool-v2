@@ -40,12 +40,13 @@ class MakeRequestPageController extends GetxController {
   final formKey = new GlobalKey<FormState>();
 
   final selectedAxle = false.obs;
+  final selectedCost = 0.obs;
 
   @override
   onInit() async {
     serviceTypes.value = await ServiceTypeProvider().getServices();
     requestTypes.value = await RequestTypeProvider().getRequests();
-    pricing.value = await PriceProvider().getPrices();
+    pricing.value = await PriceProvider().getToiletRequestPrices();
     await checkGpsPermission();
     getCurrentLocation();
     super.onInit();

@@ -12,8 +12,8 @@ class PriceProvider extends GetConnect {
   // void onInit() {
   //   httpClient.baseUrl = 'YOUR-API-URL';
   // }
-  Future<List<Pricing>> getPrices() async {
-    var url = Constants.BASE_URL + "/api/v1/admin/pricing";
+  Future<List<Pricing>> getToiletRequestPrices() async {
+    var url = Constants.BASE_URL + "/api/v1/admin/pricing/toilet-request";
 
     Response response = await connect.get(url);
     inspect(response.bodyString);

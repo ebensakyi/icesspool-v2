@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../../core/constants.dart';
 import '../model/RequestType.dart';
 
-class RequestTypeProvider extends GetConnect {
+class ToiletRequestTypeProvider extends GetConnect {
   final GetConnect connect = Get.put(GetConnect());
 
   // @override
@@ -13,7 +13,7 @@ class RequestTypeProvider extends GetConnect {
   //   httpClient.baseUrl = 'YOUR-API-URL';
   // }
   Future<List<RequestType>> getRequests() async {
-    var url = Constants.BASE_URL + "/api/v1/admin/request-type";
+    var url = Constants.BASE_URL + "/api/v1/admin/toilet-request-type";
 
     Response response = await connect.get(url);
 

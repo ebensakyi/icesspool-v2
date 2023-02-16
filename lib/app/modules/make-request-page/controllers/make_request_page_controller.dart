@@ -4,7 +4,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
-import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/request_type_provider.dart';
+import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/water-request-type-provider.dart';
 import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/service_type_provider.dart';
 import 'package:icesspool_mobilev2/core/uuid_gen.dart';
 
@@ -12,6 +12,7 @@ import '../model/RequestType.dart';
 import '../model/ServiceType.dart';
 import '../providers/make_request_provider.dart';
 import '../providers/price_provider.dart';
+import '../providers/toilet-request-type-provider.dart';
 
 class MakeRequestPageController extends GetxController {
   final isChecked = false.obs;
@@ -26,10 +27,12 @@ class MakeRequestPageController extends GetxController {
   final phoneNumberController = TextEditingController();
   final landmarkController = TextEditingController();
   final tripsNumberController = TextEditingController();
-  final selectedRequestType = "".obs;
+  final selectedToiletRequestType = "".obs;
+  final selectedWaterRequestType = "".obs;
   final selectedServiceType = "".obs;
-  final selectedWaterRequestService = "".obs;
-  final requestTypes = [].obs;
+  final toiletRequestTypes = [].obs;
+  final waterRequestTypes = [].obs;
+
   final pricing = [].obs;
   final children = <Widget>[];
 
@@ -39,16 +42,16 @@ class MakeRequestPageController extends GetxController {
   final count = 0.obs;
   StepperType stepperType = StepperType.vertical;
 
-  final formKey = new GlobalKey<FormState>();
-
   final selectedAxle = false.obs;
   final selectedCost = 0.obs;
 
   @override
   onInit() async {
     serviceTypes.value = await ServiceTypeProvider().getServices();
-    requestTypes.value = await RequestTypeProvider().getRequests();
-    pricing.value = await PriceProvider().getToiletRequestPrices();
+    toiletRequestTypes.value = await ToiletRequestTypeProvider().getRequests();
+    waterRequestTypes.value = await WaterRequestTypeProvider().getRequests();
+
+    // pricing.value = await PriceProvider().getToiletRequestPrices();
     await checkGpsPermission();
     getCurrentLocation();
     super.onInit();
@@ -62,6 +65,10 @@ class MakeRequestPageController extends GetxController {
   @override
   void onClose() {
     super.onClose();
+  }
+
+  getToiletPricing() async {
+    pricing.value = await PriceProvider().getToiletRequestPrices();
   }
 
   getCurrentLocation() async {

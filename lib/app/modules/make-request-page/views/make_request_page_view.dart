@@ -17,6 +17,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
   final formKey1 = new GlobalKey<FormState>();
   final formKey2 = new GlobalKey<FormState>();
   final formKey3 = new GlobalKey<FormState>();
+  final formKey = new GlobalKey<FormState>();
 
   MakeRequestView({Key? key}) : super(key: key);
   @override
@@ -46,7 +47,6 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
       ),
       body: Obx(
         () => Stepper(
-          key: controller.formKey,
           type: MediaQuery.of(context).orientation == Orientation.portrait
               ? StepperType.vertical
               : StepperType.horizontal,
@@ -173,17 +173,45 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                             : false,
                         child: Dropdown(
                           onChangedCallback: (newValue) {
-                            controller.selectedRequestType.value = newValue;
+                            controller.selectedToiletRequestType.value =
+                                newValue;
                           },
-                          value: controller.selectedRequestType.value,
-                          dropdownItems: controller.requestTypes.map((var obj) {
+                          value: controller.selectedToiletRequestType.value,
+                          dropdownItems:
+                              controller.toiletRequestTypes.map((var obj) {
                             return DropdownMenuItem<String>(
                               value: obj.id.toString(),
                               child: Text(obj.name.toString()),
                             );
                           }).toList(),
                           hintText: '',
-                          labelText: 'Select request type *',
+                          labelText: 'Select toilet request type *',
+                          // validator: (value) {
+                          //   return Validator.dropdownValidator(value);
+                          // },
+                        ),
+                      ),
+                    ),
+                    Obx(
+                      () => Visibility(
+                        visible: controller.selectedServiceType.value == "2"
+                            ? true
+                            : false,
+                        child: Dropdown(
+                          onChangedCallback: (newValue) {
+                            controller.selectedWaterRequestType.value =
+                                newValue;
+                          },
+                          value: controller.selectedWaterRequestType.value,
+                          dropdownItems:
+                              controller.waterRequestTypes.map((var obj) {
+                            return DropdownMenuItem<String>(
+                              value: obj.id.toString(),
+                              child: Text(obj.name.toString()),
+                            );
+                          }).toList(),
+                          hintText: '',
+                          labelText: 'Select water request type *',
                           // validator: (value) {
                           //   return Validator.dropdownValidator(value);
                           // },

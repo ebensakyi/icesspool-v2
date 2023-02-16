@@ -90,7 +90,6 @@ class MakeRequestPageController extends GetxController {
         latitude.value = position.latitude.toString();
         accuracy.value = position.accuracy.toString();
 
-        log(accuracy.toString());
         if (position.accuracy < 5) {
           _positionStream.cancel();
         }

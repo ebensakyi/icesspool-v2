@@ -17,7 +17,7 @@ class Pricing {
   int id;
   String name;
   int cost;
-  int volume;
+  String volume;
   bool isChecked;
   factory Pricing.fromJson(Map<String, dynamic> json) => Pricing(
       id: json["id"],

@@ -32,30 +32,16 @@ class LoginProvider extends GetConnect {
   //   }
   // }
 
-  Future<dynamic> registerServiceProvider(surname, otherNames, phoneNumber,
-      email, password, company, region) async {
-    // FormData formData = FormData({
-    //   'surname': surname,
-    //   'otherNames': otherNames,
-    //   'phoneNumber': phoneNumber,
-    //   'email': email,
-    //   'password': password,
-    //   'company': company,
-    //   'region': region
-    // });
-
+  Future<dynamic> login(phoneNumber, password) async {
     var data = {
-      'surname': surname,
-      'otherNames': otherNames,
       'phoneNumber': phoneNumber,
-      'email': email,
       'password': password,
-      'company': company,
-      'region': region
     };
 
-    Response response = await connect.post(
-        Constants.BASE_URL + "/api/v1/auth/provider/register", data);
+    inspect(data);
+
+    Response response =
+        await connect.post(Constants.BASE_URL + "/api/v1/auth/login", data);
     if (response.statusCode == 200) {
       return response.body;
     } else {

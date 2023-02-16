@@ -175,6 +175,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                           onChangedCallback: (newValue) {
                             controller.selectedToiletRequestType.value =
                                 newValue;
+                            controller.getToiletPricing();
                           },
                           value: controller.selectedToiletRequestType.value,
                           dropdownItems:
@@ -277,7 +278,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black54),
                                       ),
-                                      Text('${obj.volume.toString()} m3')
+                                      Text('${obj.volume.toString()} cbm')
                                     ],
                                   ),
                                   onChanged: (bool? value) {

@@ -100,7 +100,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.REGISTER_REGULAR_USER_PAGE,
-      page: () => const RegisterRegularUserPageView(),
+      page: () => RegisterRegularUserPageView(),
       binding: AuthPageBinding(),
     ),
     GetPage(

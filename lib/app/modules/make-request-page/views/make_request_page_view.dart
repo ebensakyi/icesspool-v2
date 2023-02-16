@@ -15,6 +15,8 @@ import '../controllers/make_request_page_controller.dart';
 
 class MakeRequestView extends GetView<MakeRequestPageController> {
   final formKey1 = new GlobalKey<FormState>();
+  final formKey2 = new GlobalKey<FormState>();
+  final formKey3 = new GlobalKey<FormState>();
 
   MakeRequestView({Key? key}) : super(key: key);
   @override
@@ -130,37 +132,6 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                       labelText: "Enter location detail/landmark",
                       controller: controller.landmarkController,
                     )
-                    // TextFormField(
-                    //   decoration: const InputDecoration(
-                    //     labelText: 'Enter name of sender',
-                    //     icon: Icon(Icons.person),
-                    //   ),
-                    //   controll)er: _senderNameController,
-                    // ),
-                    // TextFormField(
-                    //   decoration: const InputDecoration(
-                    //     labelText: 'Enter phone number',
-                    //     icon: Icon(Icons.phone),
-                    //   ),
-                    //   keyboardType: TextInputType.number,
-                    //   controller: _senderPhoneNumberController,
-                    // ),
-                    // TextFormField(
-                    //   decoration: InputDecoration(
-                    //     labelText: 'Choose pickup location',
-                    //     icon: Icon(Icons.location_pin),
-                    //     suffixIcon: IconButton(
-                    //       onPressed: () {},
-                    //       icon: Icon(Icons.add_location_sharp),
-                    //     ),
-
-                    //     // suffix: ElevatedButton(
-                    //     //   child: Text("Pick location from map"),
-                    //     //   onPressed: () {},
-                    //     // ),
-                    //   ),
-                    //   controller: _pickupLocationController,
-                    // ),
                   ],
                 ),
               ),
@@ -173,50 +144,54 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
               title: new Text(
                 'Request details',
               ),
-              content: Column(
-                children: <Widget>[
-                  Obx(
-                    () => Visibility(
-                      visible: true,
-                      child: Dropdown(
-                        onChangedCallback: (newValue) {
-                          controller.selectedRequestType.value = newValue;
-                        },
-                        value: controller.selectedRequestType.value,
-                        dropdownItems: controller.serviceTypes.map((var obj) {
-                          return DropdownMenuItem<String>(
-                            value: obj.id.toString(),
-                            child: Text(obj.name.toString()),
-                          );
-                        }).toList(),
-                        hintText: '',
-                        labelText: 'Select service type *',
-                        validator: (value) {
-                          return Validator.dropdownValidator(value);
-                        },
-                      ),
-                    ),
-                  ),
-                  Obx(
-                    () => Dropdown(
+              content: Form(
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                key: formKey2,
+                child: Column(
+                  children: <Widget>[
+                    Dropdown(
                       onChangedCallback: (newValue) {
-                        controller.selectedRequestType.value = newValue;
+                        controller.selectedServiceType.value = newValue;
                       },
-                      value: controller.selectedRequestType.value,
-                      dropdownItems: controller.requestTypes.map((var obj) {
+                      value: controller.selectedServiceType.value,
+                      dropdownItems: controller.serviceTypes.map((var obj) {
                         return DropdownMenuItem<String>(
                           value: obj.id.toString(),
                           child: Text(obj.name.toString()),
                         );
                       }).toList(),
                       hintText: '',
-                      labelText: 'Select request type *',
-                      validator: (value) {
-                        return Validator.dropdownValidator(value);
-                      },
+                      labelText: 'Select service type *',
+                      // validator: (value) {
+                      //   return Validator.dropdownValidator(value);
+                      // },
                     ),
-                  ),
-                ],
+                    Obx(
+                      () => Visibility(
+                        visible: controller.selectedServiceType.value == "1"
+                            ? true
+                            : false,
+                        child: Dropdown(
+                          onChangedCallback: (newValue) {
+                            controller.selectedRequestType.value = newValue;
+                          },
+                          value: controller.selectedRequestType.value,
+                          dropdownItems: controller.requestTypes.map((var obj) {
+                            return DropdownMenuItem<String>(
+                              value: obj.id.toString(),
+                              child: Text(obj.name.toString()),
+                            );
+                          }).toList(),
+                          hintText: '',
+                          labelText: 'Select request type *',
+                          // validator: (value) {
+                          //   return Validator.dropdownValidator(value);
+                          // },
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
               isActive: controller.currentStep >= 0,
               state: controller.currentStep >= 1

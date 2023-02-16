@@ -27,7 +27,7 @@ class MakeRequestPageController extends GetxController {
   final landmarkController = TextEditingController();
   final tripsNumberController = TextEditingController();
   final selectedRequestType = "".obs;
-  final selectedToiletRequestService = "".obs;
+  final selectedServiceType = "".obs;
   final selectedWaterRequestService = "".obs;
   final requestTypes = [].obs;
   final pricing = [].obs;

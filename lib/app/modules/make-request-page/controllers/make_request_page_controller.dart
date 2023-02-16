@@ -4,8 +4,10 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/water-request-type-provider.dart';
 import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/service_type_provider.dart';
+import 'package:icesspool_mobilev2/core/constants.dart';
 import 'package:icesspool_mobilev2/core/uuid_gen.dart';
 
 import '../model/RequestType.dart';
@@ -44,6 +46,7 @@ class MakeRequestPageController extends GetxController {
 
   final selectedAxle = false.obs;
   final selectedCost = 0.obs;
+  final box = GetStorage();
 
   @override
   onInit() async {
@@ -68,7 +71,9 @@ class MakeRequestPageController extends GetxController {
   }
 
   getToiletPricing() async {
-    pricing.value = await PriceProvider().getToiletRequestPrices();
+    var userId = box.read(Constants.USER_ID);
+    pricing.value = await PriceProvider()
+        .getToiletRequestPrices(userId, latitude.value, longitude.value);
   }
 
   getCurrentLocation() async {

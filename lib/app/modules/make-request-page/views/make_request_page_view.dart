@@ -64,7 +64,9 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                     ? Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Container(
-                          decoration: BoxDecoration(color: Colors.indigo),
+                          decoration: BoxDecoration(
+                              color: Colors.indigo,
+                              borderRadius: BorderRadius.circular(10)),
                           height: 35,
                           child: TextButton(
                             onPressed: () {
@@ -82,7 +84,9 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                     : Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Container(
-                          decoration: BoxDecoration(color: Colors.indigo),
+                          decoration: BoxDecoration(
+                              color: Colors.indigo,
+                              borderRadius: BorderRadius.circular(10)),
                           height: 35,
                           child: TextButton(
                             onPressed: () {
@@ -251,11 +255,11 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(16.0),
+                    padding: const EdgeInsets.only(top: 16, bottom: 16),
                     child: Container(
                       decoration: BoxDecoration(
                         // border: Border.all(width: 3.0),
-                        color: Color.fromARGB(197, 249, 221, 172),
+                        color: Color.fromARGB(197, 255, 239, 212),
                         borderRadius: BorderRadius.all(
                           Radius.circular(10.0),
                         ),

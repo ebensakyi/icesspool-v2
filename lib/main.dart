@@ -10,7 +10,15 @@ import 'core/constants.dart';
 
 main() async {
   await GetStorage.init();
+  final box = GetStorage();
 
+  var userType = box.read(Constants.USER_TYPE);
+  // if (userType == 3) {
+  //   Get.offNamed(Routes.SERVICE_PROVIDER_LANDING_PAGE);
+  // }
+  // if (userType == 4) {
+  //   Get.offNamed(Routes.CLIENT_LANDING_PAGE);
+  // }
   // SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
   //   statusBarColor: Colors.transparent,
   //   statusBarBrightness: Brightness.dark,
@@ -25,7 +33,11 @@ main() async {
           ),
       title: "iCesspool",
       debugShowCheckedModeBanner: false,
-      initialRoute: AppPages.INITIAL,
+      initialRoute: userType == 3
+          ? AppPages.INITIAL2
+          : userType == 4
+              ? AppPages.INITIAL1
+              : AppPages.INITIAL,
       getPages: AppPages.routes,
     ),
   );

@@ -11,13 +11,14 @@ class SettingsView extends GetView<SettingsController> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.blue,
         title: const Text('Settings'),
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'SettingsView is working',
+          'Settings',
           style: TextStyle(fontSize: 20),
         ),
       ),

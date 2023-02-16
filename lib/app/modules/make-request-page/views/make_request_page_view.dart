@@ -33,7 +33,8 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
       // ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.indigo,
         title: const Text('Make Request'),
         centerTitle: true,
         systemOverlayStyle: SystemUiOverlayStyle(

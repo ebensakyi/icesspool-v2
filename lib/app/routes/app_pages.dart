@@ -39,6 +39,8 @@ class AppPages {
   AppPages._();
 
   static const INITIAL = Routes.AUTH_PAGE;
+  static const INITIAL1 = Routes.CLIENT_LANDING_PAGE;
+  static const INITIAL2 = Routes.SERVICE_PROVIDER_LANDING_PAGE;
 
   static final routes = [
     GetPage(

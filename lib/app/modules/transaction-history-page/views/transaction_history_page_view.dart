@@ -32,7 +32,7 @@ class TransactionHistoryView extends GetView<TransactionHistoryController> {
       ),
       body: Center(
         child: Text(
-          'TransactionHistoryView is working',
+          'No Transactions',
           style: TextStyle(fontSize: 20),
         ),
       ),

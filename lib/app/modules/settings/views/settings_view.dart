@@ -13,13 +13,13 @@ class SettingsView extends GetView<SettingsController> {
         automaticallyImplyLeading: false,
         backgroundColor: Colors.white,
         foregroundColor: Colors.blue,
-        title: const Text('Settings'),
+        title: const Text('Account'),
         elevation: 1,
         centerTitle: true,
       ),
       body: Center(
         child: Text(
-          'Settings',
+          'Account',
           style: TextStyle(fontSize: 20),
         ),
       ),

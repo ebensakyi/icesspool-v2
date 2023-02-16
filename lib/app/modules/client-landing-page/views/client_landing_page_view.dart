@@ -55,8 +55,8 @@ class ClientLandingPageView extends GetView<ClientController> {
                 textAlign: TextAlign.center,
               ),
               BottomNavyBarItem(
-                icon: Icon(Icons.settings),
-                title: Text('Settings'),
+                icon: Icon(Icons.account_circle_outlined),
+                title: Text('Account'),
                 activeColor: Colors.blue,
                 inactiveColor: controller.inactiveColor.value,
                 textAlign: TextAlign.center,

@@ -32,8 +32,10 @@ class RegistrationProvider extends GetConnect {
       'email': email,
       'password': password,
     };
-    inspect(data);
+    // inspect(data);
     var url = Constants.BASE_URL + "/api/v1/auth/client/register";
+
+    inspect(url);
 
     Response response = await connect.post(url, data);
     inspect("res $response");

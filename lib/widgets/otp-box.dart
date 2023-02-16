@@ -5,10 +5,12 @@ import 'package:flutter/material.dart';
 class OtpBox extends StatelessWidget {
   bool first = false;
   bool last = false;
+  final dynamic controller;
 
-  // OtpBox({
-  //   Key? key,
-  // }) : super(key: key);
+  OtpBox({
+    Key? key,
+    required this.controller,
+  }) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -18,6 +20,7 @@ class OtpBox extends StatelessWidget {
         child: AspectRatio(
           aspectRatio: 1.0,
           child: TextField(
+            controller: this.controller,
             autofocus: true,
             onChanged: (value) {
               if (value.length == 1 && last == false) {

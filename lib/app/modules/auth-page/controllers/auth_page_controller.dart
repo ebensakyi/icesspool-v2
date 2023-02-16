@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:icesspool_mobilev2/app/modules/auth-page/provider/registration-provider.dart';
 
 import '../../../routes/app_pages.dart';
+import '../provider/otp-provider.dart';
 
 class AuthPageController extends GetxController {
   final surnameController = TextEditingController();
@@ -13,6 +14,12 @@ class AuthPageController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final companyController = TextEditingController();
+
+  final num1Controller = TextEditingController();
+  final num2Controller = TextEditingController();
+  final num3Controller = TextEditingController();
+  final num4Controller = TextEditingController();
+
   final isHidden = true.obs;
 
   final count = 0.obs;
@@ -64,5 +71,13 @@ class AuthPageController extends GetxController {
 
     RegistrationProvider().registerServiceProvider(surname, otherNames, phone,
         email, password, company, selectedRegion.value);
+  }
+
+  void verifyOtp() {
+    var code = "${num1Controller.text}" +
+        "${num2Controller.text}" +
+        "${num3Controller.text}" +
+        "${num4Controller.text}";
+    OtpProvider().verifyOtpProvider(phoneNumberController.text, code);
   }
 }

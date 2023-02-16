@@ -56,15 +56,18 @@ class OtpPageView extends GetView<AuthPageController> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      OtpBox(),
-                      OtpBox(),
-                      OtpBox(),
-                      OtpBox(),
+                      OtpBox(
+                        controller: controller.num1Controller,
+                      ),
+                      OtpBox(controller: controller.num2Controller),
+                      OtpBox(controller: controller.num3Controller),
+                      OtpBox(controller: controller.num4Controller),
                     ],
                   ),
                   SmallButton(
                     onPressed: () {
-                      Get.toNamed(Routes.CLIENT_LANDING_PAGE);
+                      // Get.toNamed(Routes.CLIENT_LANDING_PAGE);
+                      controller.verifyOtp();
                     },
                     showLoading: false,
                     label: "Verify",

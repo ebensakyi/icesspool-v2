@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:icesspool_mobilev2/app/modules/auth-page/controllers/auth_page_controller.dart';
+import 'package:icesspool_mobilev2/core/validator.dart';
 import 'package:icesspool_mobilev2/widgets/button.dart';
 import 'package:icesspool_mobilev2/widgets/text-box.dart';
 import 'package:get/get.dart';
@@ -47,8 +48,9 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                       labelText: "Surname",
                       hintText: "Enter surname *",
                       prefixIcon: Icons.supervised_user_circle_rounded,
-                      validator: GetUtils.isUsername(
-                          controller.surnameController.text),
+                      validator: (value) {
+                        return Validator.validateUserName(value);
+                      },
                       // obscureText: false,
                     ),
                   ),
@@ -59,6 +61,9 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                       labelText: "Other names",
                       hintText: "Enter other names *",
                       prefixIcon: Icons.supervised_user_circle_rounded,
+                      validator: (value) {
+                        return Validator.validateUserName(value);
+                      },
                       // obscureText: false,
                     ),
                   ),
@@ -70,9 +75,10 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                       hintText: "Enter phone number *",
                       prefixIcon: Icons.phone_android_outlined,
                       keyboardType: TextInputType.phone,
-                      validator: GetUtils.isPhoneNumber(
-                          controller.phoneNumberController.text),
-                      maxLength: 10,
+                      validator: (value) {
+                        return Validator.validatePhone(value);
+                      },
+                      // maxLength: 10,
                       // obscureText: false,
                     ),
                   ),
@@ -83,8 +89,9 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                       labelText: "Email",
                       hintText: "Enter email",
                       prefixIcon: Icons.email_outlined,
-                      validator:
-                          GetUtils.isEmail(controller.emailController.text),
+                      validator: (value) {
+                        return Validator.validateEmail(value);
+                      },
                       // obscureText: false,
                     ),
                   ),
@@ -104,6 +111,9 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                                   : Icons.visibility_off,
                             ),
                           ),
+                          validator: (value) {
+                            return Validator.validatePassword(value);
+                          },
                         ),
                       )),
 
@@ -112,6 +122,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                     child: Button(
                       backgroundColor: MyColors.primary2,
                       onPressed: () {
+                        registerFormKey.currentState!.validate();
                         // Get.toNamed(Routes.OTP_PAGE);
                         controller.handleRegisterRegularUser();
                       },

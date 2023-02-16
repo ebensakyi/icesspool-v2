@@ -33,22 +33,10 @@ class OtpProvider extends GetConnect {
   // }
 
   Future<dynamic> verifyOtpProvider(phoneNumber, code) async {
-    // FormData formData = FormData({
-    //   'surname': surname,
-    //   'otherNames': otherNames,
-    //   'phoneNumber': phoneNumber,
-    //   'email': email,
-    //   'password': password,
-    //   'company': company,
-    //   'region': region
-    // });
-
     var data = {'phoneNumber': phoneNumber, 'code': code};
-    inspect(data);
 
     Response response = await connect.post(
         Constants.BASE_URL + "/api/v1/auth/client/verify-token", data);
-    inspect(response);
     if (response.statusCode == 200) {
       return response.body;
     } else {

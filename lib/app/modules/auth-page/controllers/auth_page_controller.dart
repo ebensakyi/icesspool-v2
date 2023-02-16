@@ -73,11 +73,14 @@ class AuthPageController extends GetxController {
         email, password, company, selectedRegion.value);
   }
 
-  void verifyOtp() {
+  verifyOtp() {
     var code = "${num1Controller.text}" +
         "${num2Controller.text}" +
         "${num3Controller.text}" +
         "${num4Controller.text}";
-    OtpProvider().verifyOtpProvider(phoneNumberController.text, code);
+    // var response =
+    //     OtpProvider().verifyOtpProvider(phoneNumberController.text, code);
+    // return response;
+    return 1;
   }
 }

@@ -14,6 +14,8 @@ import '../../../../../widgets/dropdown.dart';
 import '../controllers/make_request_page_controller.dart';
 
 class MakeRequestView extends GetView<MakeRequestPageController> {
+  final formKey1 = new GlobalKey<FormState>();
+
   MakeRequestView({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -62,7 +64,9 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                           height: 35,
                           child: TextButton(
                             onPressed: () {
-                              controller.continued();
+                              inspect(formKey1.currentState!.validate());
+                              if (formKey1.currentState!.validate())
+                                controller.continued();
                             },
                             child: Text(
                               'Continue',
@@ -103,51 +107,62 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
             Step(
               subtitle: Text('Enter personal info here'),
               title: const Text('Personal Info'),
-              content: Column(
-                children: <Widget>[
-                  TextBox(
-                    labelText: "Enter your name or company",
-                    controller: controller.clientNameController,
-                  ),
-                  TextBox(
-                    labelText: "Enter phone number",
-                    controller: controller.phoneNumberController,
-                  ),
-                  TextBox(
+              content: Form(
+                key: formKey1,
+                autovalidateMode: AutovalidateMode.onUserInteraction,
+                child: Column(
+                  children: <Widget>[
+                    TextBox(
+                      labelText: "Enter your name or company",
+                      controller: controller.clientNameController,
+                      validator: (value) {
+                        return Validator.textFieldValidator(value);
+                      },
+                    ),
+                    TextBox(
+                      labelText: "Enter phone number",
+                      controller: controller.phoneNumberController,
+                      validator: (value) {
+                        return Validator.validatePhone(value);
+                      },
+                    ),
+                    TextBox(
                       labelText: "Enter location detail/landmark",
-                      controller: controller.landmarkController)
-                  // TextFormField(
-                  //   decoration: const InputDecoration(
-                  //     labelText: 'Enter name of sender',
-                  //     icon: Icon(Icons.person),
-                  //   ),
-                  //   controll)er: _senderNameController,
-                  // ),
-                  // TextFormField(
-                  //   decoration: const InputDecoration(
-                  //     labelText: 'Enter phone number',
-                  //     icon: Icon(Icons.phone),
-                  //   ),
-                  //   keyboardType: TextInputType.number,
-                  //   controller: _senderPhoneNumberController,
-                  // ),
-                  // TextFormField(
-                  //   decoration: InputDecoration(
-                  //     labelText: 'Choose pickup location',
-                  //     icon: Icon(Icons.location_pin),
-                  //     suffixIcon: IconButton(
-                  //       onPressed: () {},
-                  //       icon: Icon(Icons.add_location_sharp),
-                  //     ),
+                      controller: controller.landmarkController,
+                    )
+                    // TextFormField(
+                    //   decoration: const InputDecoration(
+                    //     labelText: 'Enter name of sender',
+                    //     icon: Icon(Icons.person),
+                    //   ),
+                    //   controll)er: _senderNameController,
+                    // ),
+                    // TextFormField(
+                    //   decoration: const InputDecoration(
+                    //     labelText: 'Enter phone number',
+                    //     icon: Icon(Icons.phone),
+                    //   ),
+                    //   keyboardType: TextInputType.number,
+                    //   controller: _senderPhoneNumberController,
+                    // ),
+                    // TextFormField(
+                    //   decoration: InputDecoration(
+                    //     labelText: 'Choose pickup location',
+                    //     icon: Icon(Icons.location_pin),
+                    //     suffixIcon: IconButton(
+                    //       onPressed: () {},
+                    //       icon: Icon(Icons.add_location_sharp),
+                    //     ),
 
-                  //     // suffix: ElevatedButton(
-                  //     //   child: Text("Pick location from map"),
-                  //     //   onPressed: () {},
-                  //     // ),
-                  //   ),
-                  //   controller: _pickupLocationController,
-                  // ),
-                ],
+                    //     // suffix: ElevatedButton(
+                    //     //   child: Text("Pick location from map"),
+                    //     //   onPressed: () {},
+                    //     // ),
+                    //   ),
+                    //   controller: _pickupLocationController,
+                    // ),
+                  ],
+                ),
               ),
               isActive: controller.currentStep >= 0,
               state: controller.currentStep >= 0
@@ -225,8 +240,9 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextBox(
-                        labelText: "Enter number of trips",
-                        controller: controller.tripsNumberController),
+                      labelText: "Enter number of trips",
+                      controller: controller.tripsNumberController,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.all(16.0),

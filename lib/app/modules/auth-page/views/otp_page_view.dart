@@ -67,7 +67,8 @@ class OtpPageView extends GetView<AuthPageController> {
                   SmallButton(
                     onPressed: () {
                       // Get.toNamed(Routes.CLIENT_LANDING_PAGE);
-                      controller.verifyOtp();
+                      var res = controller.verifyOtp();
+                      if (res == 1) Get.toNamed(Routes.CLIENT_LANDING_PAGE);
                     },
                     showLoading: false,
                     label: "Verify",

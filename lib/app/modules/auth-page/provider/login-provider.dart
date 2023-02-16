@@ -54,7 +54,6 @@ class LoginProvider extends GetConnect {
       'region': region
     };
 
-    inspect(data);
     Response response = await connect.post(
         Constants.BASE_URL + "/api/v1/auth/provider/register", data);
     if (response.statusCode == 200) {

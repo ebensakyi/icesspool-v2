@@ -31,6 +31,13 @@ class AuthPageController extends GetxController {
   final box = GetStorage();
   @override
   void onInit() {
+    var userType = box.read(Constants.USER_TYPE);
+    if (userType == 3) {
+      Get.offNamed(Routes.SERVICE_PROVIDER_LANDING_PAGE);
+    }
+    if (userType == 4) {
+      Get.offNamed(Routes.CLIENT_LANDING_PAGE);
+    }
     super.onInit();
   }
 

@@ -36,6 +36,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.indigo,
         title: const Text('Make Request'),
+        elevation: 1,
         centerTitle: true,
         systemOverlayStyle: SystemUiOverlayStyle(
             // Status bar color

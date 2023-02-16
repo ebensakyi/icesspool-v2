@@ -14,6 +14,7 @@ class SettingsView extends GetView<SettingsController> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.blue,
         title: const Text('Settings'),
+        elevation: 1,
         centerTitle: true,
       ),
       body: Center(

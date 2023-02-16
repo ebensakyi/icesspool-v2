@@ -14,6 +14,7 @@ class AboutView extends GetView<AboutController> {
         backgroundColor: Colors.white,
         foregroundColor: Colors.grey,
         centerTitle: true,
+        elevation: 1,
         automaticallyImplyLeading: false,
       ),
       body: Center(

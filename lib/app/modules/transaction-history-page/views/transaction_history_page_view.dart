@@ -13,12 +13,12 @@ class TransactionHistoryView extends GetView<TransactionHistoryController> {
         title: const Text(
           'Transactions',
           style: TextStyle(
-            color: Colors.indigo,
+            color: Color.fromARGB(255, 5, 76, 134),
           ),
         ),
         centerTitle: true,
         backgroundColor: Colors.grey.shade50,
-        elevation: 0,
+        elevation: 1,
         // leading: Icon(
         //   Icons.arrow_back_sharp,
         //   color: Colors.indigo,

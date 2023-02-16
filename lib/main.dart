@@ -26,11 +26,10 @@ main() async {
   runApp(
     GetMaterialApp(
       theme: ThemeData(
-          // primarySwatch: Colors.indigo,
-          // textTheme: GoogleFonts.lato()
-          // .apply(bodyColor: Colors.grey.shade700),
-
-          ),
+        primarySwatch: Colors.indigo,
+        //   textTheme: GoogleFonts.anekGujaratiTextTheme()
+        //       .apply(bodyColor: Colors.grey.shade700),
+      ),
       title: "iCesspool",
       debugShowCheckedModeBanner: false,
       initialRoute: userType == 3

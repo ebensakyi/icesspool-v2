@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:icesspool_mobilev2/app/modules/about/views/about_view.dart';
-import 'package:icesspool_mobilev2/app/modules/settings/views/settings_view.dart';
+import 'package:icesspool_mobilev2/app/modules/account/views/account_view.dart';
 
 import '../../../../widgets/custom-animated-bottom-bar.dart';
 import '../../make-request-page/views/make_request_page_view.dart';
@@ -26,7 +26,7 @@ class ClientLandingPageView extends GetView<ClientController> {
               children: [
                 MakeRequestView(),
                 TransactionHistoryView(),
-                SettingsView(),
+                AccountView(),
                 AboutView(),
               ],
             ),

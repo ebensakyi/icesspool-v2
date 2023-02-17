@@ -45,7 +45,6 @@ class MakeRequestPageController extends GetxController {
   final count = 0.obs;
   StepperType stepperType = StepperType.vertical;
 
-  final selectedAxle = false.obs;
   final selectedCost = 0.obs;
   final box = GetStorage();
 
@@ -233,13 +232,14 @@ class MakeRequestPageController extends GetxController {
   }
 
   void makeRequest() async {
+    inspect(selectedCost.value);
     var trips =
         tripsNumberController.text == "" ? 1 : tripsNumberController.text;
     int unitCost =
         int.parse(selectedCost.value.toString()) * int.parse(trips.toString());
     var uuid = await generateId();
     var data = {
-      // "id": uuid,
+      "id": uuid,
       "clientId": 1, //box.read(Constants.USER_ID),
       "landMark": landmarkController.text,
       "clientName": clientNameController.text,

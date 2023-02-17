@@ -28,8 +28,8 @@ import '../modules/region-selection-page/views/region_selection_page_view.dart';
 import '../modules/service-provider-landing-page/bindings/service_provider_landing_page_binding.dart';
 import '../modules/service-provider-landing-page/views/service_provider_landing_page_view.dart';
 
-import '../modules/settings/bindings/settings_binding.dart';
-import '../modules/settings/views/settings_view.dart';
+import '../modules/account/bindings/account_binding.dart';
+import '../modules/account/views/account_view.dart';
 import '../modules/transaction-history-page/bindings/transaction_history_page_binding.dart';
 import '../modules/transaction-history-page/views/transaction_history_page_view.dart';
 
@@ -122,8 +122,8 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SETTINGS,
-      page: () => const SettingsView(),
-      binding: SettingsBinding(),
+      page: () => const AccountView(),
+      binding: AccountBinding(),
     ),
     GetPage(
       name: _Paths.ABOUT,

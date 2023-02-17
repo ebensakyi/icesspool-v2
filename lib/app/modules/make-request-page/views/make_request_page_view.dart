@@ -67,7 +67,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.indigo,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(6)),
                           height: 35,
                           child: TextButton(
                             onPressed: () {
@@ -87,7 +87,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                         child: Container(
                           decoration: BoxDecoration(
                               color: Colors.indigo,
-                              borderRadius: BorderRadius.circular(10)),
+                              borderRadius: BorderRadius.circular(6)),
                           height: 35,
                           child: TextButton(
                             onPressed: () {
@@ -100,13 +100,20 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                           ),
                         ),
                       ),
-                TextButton(
-                  onPressed: () {
-                    controller.cancel();
-                  },
-                  child: const Text(
-                    'Cancel',
-                    style: TextStyle(color: Colors.blue),
+                Container(
+                  decoration: BoxDecoration(
+                      // color: Colors.indigo,
+                      border: Border.all(color: Colors.indigo),
+                      borderRadius: BorderRadius.circular(6)),
+                  height: 34,
+                  child: TextButton(
+                    onPressed: () {
+                      controller.cancel();
+                    },
+                    child: const Text(
+                      'Cancel',
+                      style: TextStyle(color: Colors.indigo),
+                    ),
                   ),
                 ),
               ],
@@ -265,107 +272,110 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                           Radius.circular(10.0),
                         ),
                       ),
-                      child: Obx(() => Column(
-                            children: controller.pricing
-                                .map<Widget>(
-                                  (obj) => RadioListTile(
-                                    title: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Text("${obj.name}"),
-                                        Text(
-                                          ' GHS ${obj.cost.toString()} / trip',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black54),
-                                        ),
-                                        Text('${obj.volume.toString()} cbm')
-                                      ],
-                                    ),
-                                    groupValue: obj.id,
-                                    value: obj.cost,
-                                    toggleable: true,
-                                    onChanged: (value) {
-                                      log(value.toString());
-                                      // obj.isChecked = value!;
-                                      controller.update();
-                                      controller.selectedCost.value = value;
-                                    },
+                      child: Column(
+                        children: controller.pricing
+                            .map<Widget>(
+                              (obj) => GetBuilder<MakeRequestPageController>(
+                                builder: (_) => RadioListTile(
+                                  title: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text("${obj.name}"),
+                                      Text(
+                                        ' GHS ${obj.cost.toString()} / trip',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black54),
+                                      ),
+                                      Text('${obj.volume.toString()} cbm')
+                                    ],
                                   ),
-                                  // CheckboxListTile(
-                                  //   title: Row(
-                                  //     mainAxisAlignment:
-                                  //         MainAxisAlignment.spaceAround,
-                                  //     children: [
-                                  //       Text(
-                                  //         obj.name.toString(),
-                                  //         style: TextStyle(
-                                  //             fontWeight: FontWeight.normal),
-                                  //       ),
-                                  //       Text(
-                                  //         'GHS ${obj.cost.toString()} / trip',
-                                  //         style: TextStyle(
-                                  //             fontWeight: FontWeight.bold,
-                                  //             color: Colors.black54),
-                                  //       ),
-                                  //       Text('${obj.volume.toString()} cbm')
-                                  //     ],
-                                  //   ),
-                                  //   onChanged: (bool? value) {
-                                  //     obj.isChecked = value!;
-                                  //     controller.update();
-                                  //     controller.selectedCost.value = obj.cost;
-                                  //   },
-                                  //   value: obj.isChecked,
-                                  // ),
-                                )
-                                .toList(),
-                          )),
-
-                      // child: Dropdown(
-                      //   onChangedCallback: (newValue) {
-                      //     controller.selectedRequestType.value = newValue;
-                      //   },
-                      //   value: controller.selectedRequestType.value,
-                      //   dropdownItems: controller.pricing.map((var obj) {
-                      //     return DropdownMenuItem<String>(
-                      //       value: obj.cost.toString(),
-                      //       child: Text(
-                      //           obj.name.toString() + " GHS " + obj.cost.toString()),
-                      //     );
-                      //   }).toList(),
-                      //   hintText: '',
-                      //   labelText: 'Select truck type *',
-                      //   validator: (value) {
-                      //     return Validator.dropdownValidator(value);
-                      //   },
-                      // ),
-                      // child: Column(
-                      //   children: controller.pricing
-                      //       .map<Widget>(
-                      //         (price) => ListTile(
-                      //           leading: Text(
-                      //             price.name.toString(),
-                      //             style: TextStyle(
-                      //                 fontSize: 14,
-                      //                 color: Colors.black,
-                      //                 fontWeight: FontWeight.bold),
-                      //           ),
-                      //           subtitle: Text(
-                      //               'GHS ${price.cost.toString()} per trip for  ${price.volume.toString()} m3',
-                      //               style: TextStyle(fontSize: 14)),
-                      //           trailing: Checkbox(
-                      //               value: controller.isChecked.value,
-                      //               onChanged: (bool? newValue) {
-                      //                 controller.isChecked.value =
-                      //                     !controller.isChecked.value;
-                      //               }),
-                      //         ),
-                      //       )
-                      //       .toList(),
-                      // ),
+                                  groupValue: obj.id,
+                                  value: obj.cost,
+                                  toggleable: true,
+                                  onChanged: (value) {
+                                    obj.id = value;
+                                    // log(value.toString());
+                                    // obj.isChecked = value!;
+                                    controller.update();
+                                    controller.selectedCost.value = value;
+                                  },
+                                ),
+                                // CheckboxListTile(
+                                //   title: Row(
+                                //     mainAxisAlignment:
+                                //         MainAxisAlignment.spaceAround,
+                                //     children: [
+                                //       Text(
+                                //         obj.name.toString(),
+                                //         style: TextStyle(
+                                //             fontWeight: FontWeight.normal),
+                                //       ),
+                                //       Text(
+                                //         'GHS ${obj.cost.toString()} / trip',
+                                //         style: TextStyle(
+                                //             fontWeight: FontWeight.bold,
+                                //             color: Colors.black54),
+                                //       ),
+                                //       Text('${obj.volume.toString()} cbm')
+                                //     ],
+                                //   ),
+                                //   onChanged: (bool? value) {
+                                //     obj.isChecked = value!;
+                                //     controller.update();
+                                //     controller.selectedCost.value = obj.cost;
+                                //   },
+                                //   value: obj.isChecked,
+                                // ),
+                              ),
+                            )
+                            .toList(),
+                      ),
                     ),
+
+                    // child: Dropdown(
+                    //   onChangedCallback: (newValue) {
+                    //     controller.selectedRequestType.value = newValue;
+                    //   },
+                    //   value: controller.selectedRequestType.value,
+                    //   dropdownItems: controller.pricing.map((var obj) {
+                    //     return DropdownMenuItem<String>(
+                    //       value: obj.cost.toString(),
+                    //       child: Text(
+                    //           obj.name.toString() + " GHS " + obj.cost.toString()),
+                    //     );
+                    //   }).toList(),
+                    //   hintText: '',
+                    //   labelText: 'Select truck type *',
+                    //   validator: (value) {
+                    //     return Validator.dropdownValidator(value);
+                    //   },
+                    // ),
+                    // child: Column(
+                    //   children: controller.pricing
+                    //       .map<Widget>(
+                    //         (price) => ListTile(
+                    //           leading: Text(
+                    //             price.name.toString(),
+                    //             style: TextStyle(
+                    //                 fontSize: 14,
+                    //                 color: Colors.black,
+                    //                 fontWeight: FontWeight.bold),
+                    //           ),
+                    //           subtitle: Text(
+                    //               'GHS ${price.cost.toString()} per trip for  ${price.volume.toString()} m3',
+                    //               style: TextStyle(fontSize: 14)),
+                    //           trailing: Checkbox(
+                    //               value: controller.isChecked.value,
+                    //               onChanged: (bool? newValue) {
+                    //                 controller.isChecked.value =
+                    //                     !controller.isChecked.value;
+                    //               }),
+                    //         ),
+                    //       )
+                    //       .toList(),
+                    // ),
                   ),
                 ],
               ),

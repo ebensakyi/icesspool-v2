@@ -7,6 +7,8 @@ import 'package:icesspool_mobilev2/app/modules/auth-page/provider/login-provider
 import 'package:icesspool_mobilev2/app/modules/auth-page/provider/registration-provider.dart';
 
 import '../../../../core/constants.dart';
+import '../../../../core/snackbars.dart';
+import '../../../../themes/colors.dart';
 import '../../../routes/app_pages.dart';
 import '../provider/otp-provider.dart';
 
@@ -55,6 +57,17 @@ class AuthPageController extends GetxController {
     var response = await LoginProvider()
         .login(phoneNumberController.text, passwordController.text);
 
+    inspect(response);
+    if (response == null) {
+      inspect("response...");
+
+      //  return MySnackbar.showSuccess(title: "Success", message: "nmm");
+
+      Get.snackbar("Error", "No image was picked",
+          snackPosition: SnackPosition.BOTTOM,
+          backgroundColor: MyColors.Red,
+          colorText: MyColors.White);
+    }
     if (response != null) {
       box.write(Constants.USER_ID, response["userId"]);
       box.write(Constants.USER_TYPE, response["userTypeId"]);
@@ -66,6 +79,7 @@ class AuthPageController extends GetxController {
         return Get.toNamed(Routes.SERVICE_PROVIDER_LANDING_PAGE);
       }
     }
+
     // inspect(response);
     // if (passwordController.text == "c") {
     //   Get.toNamed(Routes.CLIENT_LANDING_PAGE);

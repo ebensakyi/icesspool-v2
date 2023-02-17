@@ -9,6 +9,7 @@ import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/water
 import 'package:icesspool_mobilev2/app/modules/make-request-page/providers/service_type_provider.dart';
 import 'package:icesspool_mobilev2/core/constants.dart';
 import 'package:icesspool_mobilev2/core/uuid_gen.dart';
+import 'package:uuid/uuid.dart';
 
 import '../model/RequestType.dart';
 import '../model/ServiceType.dart';
@@ -232,11 +233,14 @@ class MakeRequestPageController extends GetxController {
   }
 
   void makeRequest() async {
-    int unitCost = int.parse(selectedCost.value.toString()) *
-        int.parse(tripsNumberController.text.toString());
+    var trips =
+        tripsNumberController.text == "" ? 1 : tripsNumberController.text;
+    int unitCost =
+        int.parse(selectedCost.value.toString()) * int.parse(trips.toString());
+    var uuid = await generateId();
     var data = {
-      "id": "mbvgchvjbknmko,olikjhg",
-      "clientId": 1,
+      // "id": uuid,
+      "clientId": 1, //box.read(Constants.USER_ID),
       "landMark": landmarkController.text,
       "clientName": clientNameController.text,
       "gpsAccuracy": accuracy.value,
@@ -247,6 +251,8 @@ class MakeRequestPageController extends GetxController {
       "actualTotalCost": selectedCost.value,
       "unitCost": unitCost,
     };
+
+    inspect(data);
     await MakeRequestProvider().makeRequest(data);
   }
 }

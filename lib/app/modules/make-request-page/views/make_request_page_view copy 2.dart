@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
-import 'package:icesspool_mobilev2/app/modules/make-request-page/model/Pricing.dart';
 import 'package:icesspool_mobilev2/themes/colors.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:icesspool_mobilev2/widgets/text-box.dart';
@@ -220,9 +219,9 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                           }).toList(),
                           hintText: '',
                           labelText: 'Select water request type *',
-                          validator: (value) {
-                            return Validator.dropdownValidator(value);
-                          },
+                          // validator: (value) {
+                          //   return Validator.dropdownValidator(value);
+                          // },
                         ),
                       ),
                     ),
@@ -265,63 +264,56 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                           Radius.circular(10.0),
                         ),
                       ),
-                      child: Obx(() => Column(
-                            children: controller.pricing
-                                .map<Widget>(
-                                  (obj) => RadioListTile(
-                                    title: Row(
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceAround,
-                                      children: [
-                                        Text("${obj.name}"),
-                                        Text(
-                                          ' GHS ${obj.cost.toString()} / trip',
-                                          style: TextStyle(
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.black54),
-                                        ),
-                                        Text('${obj.volume.toString()} cbm')
-                                      ],
-                                    ),
-                                    groupValue: obj.id,
-                                    value: obj.cost,
-                                    toggleable: true,
-                                    onChanged: (value) {
-                                      log(value.toString());
-                                      // obj.isChecked = value!;
-                                      controller.update();
-                                      controller.selectedCost.value = value;
-                                    },
+                      child: Column(
+                        children: controller.pricing
+                            .map<Widget>(
+                              (obj) => GetBuilder<MakeRequestPageController>(
+                                builder: (_) => CheckboxListTile(
+                                  title: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceAround,
+                                    children: [
+                                      Text(
+                                        obj.name.toString(),
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.normal),
+                                      ),
+                                      Text(
+                                        'GHS ${obj.cost.toString()} / trip',
+                                        style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.black54),
+                                      ),
+                                      Text('${obj.volume.toString()} cbm')
+                                    ],
                                   ),
-                                  // CheckboxListTile(
-                                  //   title: Row(
-                                  //     mainAxisAlignment:
-                                  //         MainAxisAlignment.spaceAround,
-                                  //     children: [
-                                  //       Text(
-                                  //         obj.name.toString(),
-                                  //         style: TextStyle(
-                                  //             fontWeight: FontWeight.normal),
-                                  //       ),
-                                  //       Text(
-                                  //         'GHS ${obj.cost.toString()} / trip',
-                                  //         style: TextStyle(
-                                  //             fontWeight: FontWeight.bold,
-                                  //             color: Colors.black54),
-                                  //       ),
-                                  //       Text('${obj.volume.toString()} cbm')
-                                  //     ],
-                                  //   ),
-                                  //   onChanged: (bool? value) {
-                                  //     obj.isChecked = value!;
-                                  //     controller.update();
-                                  //     controller.selectedCost.value = obj.cost;
-                                  //   },
-                                  //   value: obj.isChecked,
-                                  // ),
-                                )
-                                .toList(),
-                          )),
+                                  onChanged: (bool? value) {
+                                    // obj.isChecked = value!;
+                                    // controller.update();
+                                    // controller.selectedCost.value = obj.cost;
+                                    for (int i = 0;
+                                        i < controller.pricing.length;
+                                        i++) {
+                                      // log(obj.id.toString());
+                                      // log(controller.pricing[i].id.toString());
+                                      if (obj.id == controller.pricing[i].id) {
+                                        log("lol1");
+
+                                        obj.isChecked = value;
+                                        controller.update();
+                                      } else {
+                                        log("lol");
+                                        obj.isChecked = !value!;
+                                        controller.update();
+                                      }
+                                    }
+                                  },
+                                  value: obj.isChecked,
+                                ),
+                              ),
+                            )
+                            .toList(),
+                      ),
 
                       // child: Dropdown(
                       //   onChangedCallback: (newValue) {

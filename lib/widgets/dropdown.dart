@@ -149,9 +149,9 @@ class Dropdown extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(4.0),
+      padding: const EdgeInsets.all(10.0),
       child: Container(
-        height: 55,
+        height: 58,
         child: FormBuilderDropdown<String>(
             key: UniqueKey(),
             // autovalidate: true,
@@ -170,10 +170,10 @@ class Dropdown extends StatelessWidget {
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.blueGrey, width: 1.0),
               ),
+              hintText: this.hintText,
             ),
             initialValue: initialValue,
-            allowClear: true,
-            hint: Text(this.hintText),
+
             // validator:
             //     FormBuilderValidators.compose([FormBuilderValidators.required()]),
             items: dropdownItems,

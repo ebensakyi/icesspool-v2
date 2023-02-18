@@ -90,9 +90,9 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                       }).toList(),
                       hintText: '',
                       labelText: 'Please select region of residence *',
-                      validator: (value) {
-                        return Validator.dropdownValidator(value);
-                      },
+                      // validator: (value) {
+                      //   return Validator.dropdownValidator(value);
+                      // },
                     ),
                   ),
                   Padding(

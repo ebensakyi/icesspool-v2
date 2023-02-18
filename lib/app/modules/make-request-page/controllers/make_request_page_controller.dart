@@ -72,8 +72,10 @@ class MakeRequestPageController extends GetxController {
 
   getToiletPricing() async {
     var userId = box.read(Constants.USER_ID);
-    pricing.value = await PriceProvider()
-        .getToiletRequestPrices(userId, latitude.value, longitude.value);
+    var regionId = box.read(Constants.REGION);
+
+    pricing.value = await PriceProvider().getToiletRequestPrices(
+        userId, latitude.value, longitude.value, regionId);
   }
 
   getCurrentLocation() async {

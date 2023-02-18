@@ -12,11 +12,13 @@ class PriceProvider extends GetConnect {
   // void onInit() {
   //   httpClient.baseUrl = 'YOUR-API-URL';
   // }
-  Future<List<Pricing>> getToiletRequestPrices(userId, lat, lng) async {
-    var url = Constants.BASE_URL + "/api/v1/admin/pricing/toilet-request";
+  Future<List<Pricing>> getToiletRequestPrices(userId, lat, lng, region) async {
+    var url = Constants.BASE_URL +
+        "/api/v1/admin/pricing/toilet-request?userId=$userId&lat=$lat&lng=$lng&regionId=$region";
 
-    Response response = await connect.get("$url?=$userId&lat=$lat&lng=$lng");
-    inspect(response.bodyString);
+    inspect(url);
+
+    Response response = await connect.get(url);
 
     if (response.statusCode == 200) {
       return pricingFromJson(response.bodyString.toString());

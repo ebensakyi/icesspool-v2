@@ -60,6 +60,8 @@ class AuthPageController extends GetxController {
   void handleLogin() async {
     var response = await LoginProvider()
         .login(phoneNumberController.text, passwordController.text);
+
+    inspect(response);
     if (response == null) {
       //  return MySnackbar.showSuccess(title: "Success", message: "nmm");
 
@@ -71,6 +73,7 @@ class AuthPageController extends GetxController {
     if (response != null) {
       box.write(Constants.USER_ID, response["id"]);
       box.write(Constants.USER_TYPE, response["userTypeId"]);
+      box.write(Constants.REGION, response["regionId"]);
 
       if (response["userTypeId"] == 4) {
         return Get.toNamed(Routes.CLIENT_LANDING_PAGE);
@@ -98,7 +101,7 @@ class AuthPageController extends GetxController {
     var password = passwordController.text;
 
     RegistrationProvider().registerRegularUser(
-        surname, otherNames, phone, email, password, selectedRegion);
+        surname, otherNames, phone, email, password, selectedRegion.value);
   }
 
   void handleRegisterServiceProvider() {

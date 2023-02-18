@@ -59,17 +59,16 @@ class AuthPageController extends GetxController {
 
     inspect(response);
     if (response == null) {
-      inspect("response...");
-
       //  return MySnackbar.showSuccess(title: "Success", message: "nmm");
 
-      Get.snackbar("Error", "No image was picked",
+      Get.snackbar("Error", "Wrong user account",
           snackPosition: SnackPosition.BOTTOM,
           backgroundColor: MyColors.Red,
           colorText: MyColors.White);
     }
     if (response != null) {
-      box.write(Constants.USER_ID, response["userId"]);
+      inspect(response["id"]);
+      box.write(Constants.USER_ID, response["id"]);
       box.write(Constants.USER_TYPE, response["userTypeId"]);
 
       if (response["userTypeId"] == 4) {

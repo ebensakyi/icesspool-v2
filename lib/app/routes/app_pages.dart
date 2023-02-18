@@ -122,7 +122,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.SETTINGS,
-      page: () => const AccountView(),
+      page: () => AccountView(),
       binding: AccountBinding(),
     ),
     GetPage(

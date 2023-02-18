@@ -26,8 +26,8 @@ class ClientLandingPageView extends GetView<ClientController> {
               children: [
                 MakeRequestView(),
                 TransactionHistoryView(),
-                AccountView(),
                 AboutView(),
+                AccountView(),
               ],
             ),
           ),
@@ -55,18 +55,18 @@ class ClientLandingPageView extends GetView<ClientController> {
                 textAlign: TextAlign.center,
               ),
               BottomNavyBarItem(
-                icon: Icon(Icons.account_circle_outlined),
-                title: Text('Account'),
-                activeColor: Colors.blue,
-                inactiveColor: controller.inactiveColor.value,
-                textAlign: TextAlign.center,
-              ),
-              BottomNavyBarItem(
                 icon: Icon(Icons.help_outline),
                 title: Text(
                   'About ',
                 ),
                 activeColor: Colors.blueGrey,
+                inactiveColor: controller.inactiveColor.value,
+                textAlign: TextAlign.center,
+              ),
+              BottomNavyBarItem(
+                icon: Icon(Icons.account_circle_outlined),
+                title: Text('Account'),
+                activeColor: Colors.blue,
                 inactiveColor: controller.inactiveColor.value,
                 textAlign: TextAlign.center,
               ),

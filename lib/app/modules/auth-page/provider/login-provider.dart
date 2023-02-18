@@ -42,6 +42,8 @@ class LoginProvider extends GetConnect {
 
     Response response =
         await connect.post(Constants.BASE_URL + "/api/v1/auth/login", data);
+    inspect(response);
+
     if (response.statusCode == 200) {
       return response.body;
     } else {

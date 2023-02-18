@@ -163,23 +163,23 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                 key: formKey2,
                 child: Column(
                   children: <Widget>[
-                    Dropdown(
-                      onChangedCallback: (newValue) {
-                        controller.selectedServiceType.value = newValue;
-                      },
-                      value: controller.selectedServiceType.value,
-                      dropdownItems: controller.serviceTypes.map((var obj) {
-                        return DropdownMenuItem<String>(
-                          value: obj.id.toString(),
-                          child: Text(obj.name.toString()),
-                        );
-                      }).toList(),
-                      hintText: '',
-                      labelText: 'Select service type *',
-                      // validator: (value) {
-                      //   return Validator.dropdownValidator(value);
-                      // },
-                    ),
+                    Obx(() => Dropdown(
+                          onChangedCallback: (newValue) {
+                            controller.selectedServiceType.value = newValue;
+                          },
+                          value: controller.selectedServiceType.value,
+                          dropdownItems: controller.serviceTypes.map((var obj) {
+                            return DropdownMenuItem<String>(
+                              value: obj.id.toString(),
+                              child: Text(obj.name.toString()),
+                            );
+                          }).toList(),
+                          hintText: '',
+                          labelText: 'Select service type *',
+                          // validator: (value) {
+                          //   return Validator.dropdownValidator(value);
+                          // },
+                        )),
                     Obx(
                       () => Visibility(
                         visible: controller.selectedServiceType.value == "1"

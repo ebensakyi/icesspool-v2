@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:icesspool_mobilev2/app/modules/auth-page/provider/login-provider.dart';
+import 'package:icesspool_mobilev2/app/modules/auth-page/provider/region-provider.dart';
 import 'package:icesspool_mobilev2/app/modules/auth-page/provider/registration-provider.dart';
 
 import '../../../../core/constants.dart';
@@ -25,6 +26,8 @@ class AuthPageController extends GetxController {
   final num3Controller = TextEditingController();
   final num4Controller = TextEditingController();
 
+  final regions = [].obs;
+
   final isHidden = true.obs;
 
   final count = 0.obs;
@@ -32,7 +35,7 @@ class AuthPageController extends GetxController {
   final selectedRegion = "".obs;
   final box = GetStorage();
   @override
-  void onInit() {
+  void onInit() async {
     // var userType = box.read(Constants.USER_TYPE);
     // if (userType == 3) {
     //   Get.offNamed(Routes.SERVICE_PROVIDER_LANDING_PAGE);
@@ -40,6 +43,7 @@ class AuthPageController extends GetxController {
     // if (userType == 4) {
     //   Get.offNamed(Routes.CLIENT_LANDING_PAGE);
     // }
+    regions.value = await RegionProvider().getRegions();
     super.onInit();
   }
 
@@ -56,8 +60,6 @@ class AuthPageController extends GetxController {
   void handleLogin() async {
     var response = await LoginProvider()
         .login(phoneNumberController.text, passwordController.text);
-
-    inspect(response);
     if (response == null) {
       //  return MySnackbar.showSuccess(title: "Success", message: "nmm");
 
@@ -67,7 +69,6 @@ class AuthPageController extends GetxController {
           colorText: MyColors.White);
     }
     if (response != null) {
-      inspect(response["id"]);
       box.write(Constants.USER_ID, response["id"]);
       box.write(Constants.USER_TYPE, response["userTypeId"]);
 
@@ -96,8 +97,8 @@ class AuthPageController extends GetxController {
     var email = emailController.text;
     var password = passwordController.text;
 
-    RegistrationProvider()
-        .registerRegularUser(surname, otherNames, phone, email, password);
+    RegistrationProvider().registerRegularUser(
+        surname, otherNames, phone, email, password, selectedRegion);
   }
 
   void handleRegisterServiceProvider() {

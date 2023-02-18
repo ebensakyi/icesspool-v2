@@ -7,7 +7,9 @@ import 'package:icesspool_mobilev2/widgets/text-box.dart';
 import 'package:get/get.dart';
 
 import '../../../../themes/colors.dart';
+import '../../../../widgets/dropdown.dart';
 import '../../../routes/app_pages.dart';
+import '../model/Region.dart';
 
 class RegisterRegularUserPageView extends GetView<AuthPageController> {
   final registerFormKey = new GlobalKey<FormState>();
@@ -65,6 +67,32 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                         return Validator.validateUserName(value);
                       },
                       // obscureText: false,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Dropdown(
+                      onChangedCallback: (newValue) {
+                        controller.selectedRegion.value = newValue;
+                      },
+                      // initialValue: basicInfoSectionController.returnValue(
+                      //     basicInfoSectionController
+                      //         .selectedRespondentDesignation.value),
+                      value: controller.selectedRegion.value,
+                      dropdownItems: [
+                        {"id": 1, "name": "Greater Accra"},
+                        {"id": 2, "name": "Northern Region"}
+                      ].map((var obj) {
+                        return DropdownMenuItem<String>(
+                          value: obj["id"].toString(),
+                          child: Text(obj["name"].toString()),
+                        );
+                      }).toList(),
+                      hintText: '',
+                      labelText: 'Please select region of residence *',
+                      validator: (value) {
+                        return Validator.dropdownValidator(value);
+                      },
                     ),
                   ),
                   Padding(

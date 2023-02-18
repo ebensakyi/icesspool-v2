@@ -15,7 +15,7 @@ class RegistrationProvider extends GetConnect {
   // }
 
   Future registerRegularUser(
-      surname, otherNames, phoneNumber, email, password) async {
+      surname, otherNames, phoneNumber, email, password, selectedRegion) async {
     // FormData formData = FormData({
     //   'surname': surname,
     //   'otherNames': otherNames,
@@ -31,6 +31,7 @@ class RegistrationProvider extends GetConnect {
       'phoneNumber': phoneNumber,
       'email': email,
       'password': password,
+      "regionId": selectedRegion
     };
     // inspect(data);
     var url = Constants.BASE_URL + "/api/v1/auth/client/register";
@@ -38,7 +39,7 @@ class RegistrationProvider extends GetConnect {
     inspect(url);
 
     Response response = await connect.post(url, data);
-    inspect("res $response");
+    inspect(response);
 
     if (response.statusCode == 200) {
       Get.toNamed(Routes.OTP_PAGE);

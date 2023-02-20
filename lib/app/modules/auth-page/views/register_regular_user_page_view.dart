@@ -44,7 +44,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                         width: 210),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: TextBox(
                       controller: controller.surnameController,
                       labelText: "Surname",
@@ -57,7 +57,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: TextBox(
                       controller: controller.otherNamesController,
                       labelText: "Other names",
@@ -70,7 +70,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: Dropdown(
                       onChangedCallback: (newValue) {
                         controller.selectedRegion.value = newValue;
@@ -96,7 +96,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: TextBox(
                       controller: controller.phoneNumberController,
                       labelText: "Phone number",
@@ -110,21 +110,21 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                       // obscureText: false,
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: TextBox(
-                      controller: controller.emailController,
-                      labelText: "Email",
-                      hintText: "Enter email",
-                      prefixIcon: Icons.email_outlined,
-                      validator: (value) {
-                        return Validator.validateEmail(value);
-                      },
-                      // obscureText: false,
-                    ),
-                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.all(2.0),
+                  //   child: TextBox(
+                  //     controller: controller.emailController,
+                  //     labelText: "Email",
+                  //     hintText: "Enter email",
+                  //     prefixIcon: Icons.email_outlined,
+                  //     validator: (value) {
+                  //       return Validator.validateEmail(value);
+                  //     },
+                  //     // obscureText: false,
+                  //   ),
+                  // ),
                   Obx(() => Padding(
-                        padding: const EdgeInsets.all(8.0),
+                        padding: const EdgeInsets.all(2.0),
                         child: TextBox(
                           controller: controller.passwordController,
                           labelText: "Password",
@@ -146,7 +146,7 @@ class RegisterRegularUserPageView extends GetView<AuthPageController> {
                       )),
 
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(2.0),
                     child: Button(
                       backgroundColor: MyColors.primary2,
                       onPressed: () {

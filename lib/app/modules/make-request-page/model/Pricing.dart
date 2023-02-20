@@ -9,14 +9,14 @@ class Pricing {
   Pricing({
     required this.id,
     required this.name,
-    required this.cost,
+    this.cost,
     required this.volume,
     required this.isChecked,
   });
 
   int id;
   String name;
-  int cost;
+  int? cost;
   String volume;
   bool isChecked;
   factory Pricing.fromJson(Map<String, dynamic> json) => Pricing(

@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:icesspool_mobilev2/themes/colors.dart';
 import 'package:icesspool_mobilev2/widgets/button.dart';
 import 'package:icesspool_mobilev2/widgets/text-box.dart';
+import 'package:sizer/sizer.dart';
 
 import '../../../routes/app_pages.dart';
 import '../controllers/auth_page_controller.dart';
@@ -27,12 +28,12 @@ class AuthPageView extends GetView<AuthPageController> {
             child: Column(
               children: [
                 SizedBox(
-                  height: 50,
+                  height: 10,
                 ),
                 Padding(
-                  padding: const EdgeInsets.all(20.0),
+                  padding: const EdgeInsets.all(34.0),
                   child: Image.asset("assets/images/icesspool_logo.png",
-                      width: 300),
+                      width: 200),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -41,6 +42,7 @@ class AuthPageView extends GetView<AuthPageController> {
                     labelText: "Phone number",
                     hintText: "Enter Phone Number",
                     prefixIcon: Icons.phone_android_outlined,
+                    keyboardType: TextInputType.number,
                     // obscureText: false,
                   ),
                 ),
@@ -123,29 +125,33 @@ class AuthPageView extends GetView<AuthPageController> {
                     label: "Register",
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 16, right: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey,
-                          thickness: 0.5,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text("Powered by:"),
-                      ),
-                      Expanded(
-                        child: Divider(
-                          color: Colors.grey,
-                          thickness: 0.5,
-                        ),
-                      ),
-                    ],
-                  ),
+                // Padding(
+                //   padding: const EdgeInsets.only(left: 16, right: 16),
+                //   child: Row(
+                //     mainAxisAlignment: MainAxisAlignment.center,
+                //     children: [
+                //       Expanded(
+                //         child: Divider(
+                //           color: Colors.grey,
+                //           thickness: 0.5,
+                //         ),
+                //       ),
+                //       Padding(
+                //         padding: const EdgeInsets.all(8.0),
+                //         child: Text("Powered by:"),
+                //       ),
+                //       Expanded(
+                //         child: Divider(
+                //           color: Colors.grey,
+                //           thickness: 0.5,
+                //         ),
+                //       ),
+                //     ],
+                //   ),
+                // ),
+                Divider(
+                  color: Colors.grey,
+                  thickness: 0.5,
                 ),
                 Padding(
                   padding: EdgeInsets.all(8.0),
@@ -161,28 +167,28 @@ class AuthPageView extends GetView<AuthPageController> {
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
                             "assets/images/mswr.jpg",
-                            width: 40,
+                            width: 12.w,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
                             "assets/images/gama.jpg",
-                            width: 40,
+                            width: 12.w,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
                             "assets/images/espa.png",
-                            width: 40,
+                            width: 12.w,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
                             "assets/images/ssgl.png",
-                            width: 40,
+                            width: 12.w,
                           ),
                         ),
                         // Padding(
@@ -252,21 +258,21 @@ class AuthPageView extends GetView<AuthPageController> {
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
                             "assets/images/unicef.png",
-                            width: 50,
+                            width: 12.w,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
                             "assets/images/tama.png",
-                            width: 50,
+                            width: 12.w,
                           ),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Image.asset(
                             "assets/images/crs.jpg",
-                            width: 40,
+                            width: 12.w,
                           ),
                         ),
                       ],

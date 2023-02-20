@@ -52,7 +52,7 @@ class TextBox extends StatelessWidget {
           filled: true,
           fillColor: MyColors.White,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15),
+            borderRadius: BorderRadius.circular(5),
             // borderSide: BorderSide.none,
           ),
           focusedBorder: OutlineInputBorder(

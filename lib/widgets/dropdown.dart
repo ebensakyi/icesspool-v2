@@ -153,41 +153,41 @@ class Dropdown extends StatelessWidget {
       child: Container(
         height: 58,
         child: FormBuilderDropdown<String>(
-            key: UniqueKey(),
-            // autovalidate: true,
-            name: '',
-            isExpanded: true,
-            icon: Icon(Icons.arrow_drop_down),
-            decoration: InputDecoration(
-              labelText: labelText,
-              //suffix: hasError ? const Icon(Icons.error) : const Icon(Icons.check),
-              border: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              focusedBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.indigoAccent, width: 2.0),
-              ),
-              enabledBorder: OutlineInputBorder(
-                borderSide: BorderSide(color: Colors.blueGrey, width: 1.0),
-              ),
-              hintText: this.hintText,
+          key: UniqueKey(),
+          // autovalidate: true,
+          name: '',
+          isExpanded: true,
+          icon: Icon(Icons.arrow_drop_down),
+          decoration: InputDecoration(
+            labelText: labelText,
+            //suffix: hasError ? const Icon(Icons.error) : const Icon(Icons.check),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(10.0),
             ),
-            initialValue: initialValue,
+            focusedBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.indigoAccent, width: 2.0),
+            ),
+            enabledBorder: OutlineInputBorder(
+              borderSide: BorderSide(color: Colors.blueGrey, width: 1.0),
+            ),
+            hintText: this.hintText,
+          ),
+          initialValue: initialValue,
 
-            // validator:
-            //     FormBuilderValidators.compose([FormBuilderValidators.required()]),
-            items: dropdownItems,
-            isDense: true,
-            onChanged: (val) {
-              this.onChangedCallback(val);
-              // setState(() {
-              //   _genderHasError =
-              //       !(_formKey.currentState?.fields['gender']?.validate() ?? false);
-              // });
-            },
-            valueTransformer: (val) => val?.toString(),
-            validator: this.validator,
-            autovalidateMode: this.autovalidateMode),
+          // validator:
+          //     FormBuilderValidators.compose([FormBuilderValidators.required()]),
+          items: dropdownItems,
+          isDense: true,
+          onChanged: (val) {
+            this.onChangedCallback(val);
+            // setState(() {
+            //   _genderHasError =
+            //       !(_formKey.currentState?.fields['gender']?.validate() ?? false);
+            // });
+          },
+          valueTransformer: (val) => val?.toString(),
+          validator: this.validator,
+        ),
       ),
     );
   }

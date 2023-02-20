@@ -138,12 +138,13 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                     TextBox(
                       labelText: "Enter phone number",
                       controller: controller.phoneNumberController,
+                      keyboardType: TextInputType.phone,
                       validator: (value) {
                         return Validator.validatePhone(value);
                       },
                     ),
                     TextBox(
-                      labelText: "Enter location detail/landmark",
+                      labelText: "Enter community",
                       controller: controller.landmarkController,
                     )
                   ],

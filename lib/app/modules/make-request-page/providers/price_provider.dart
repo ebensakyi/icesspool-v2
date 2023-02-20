@@ -13,8 +13,13 @@ class PriceProvider extends GetConnect {
   //   httpClient.baseUrl = 'YOUR-API-URL';
   // }
   Future<List<Pricing>> getToiletRequestPrices(userId, lat, lng, region) async {
+    inspect(userId);
+    inspect(lat);
+    inspect(lng);
+    inspect(region);
+
     var url = Constants.BASE_URL +
-        "/api/v1/admin/pricing/toilet-request?userId=$userId&lat=$lat&lng=$lng&regionId=$region";
+        "/api/v1/client/make-request/pricing/toilet-request?userId=$userId&lat=$lat&lng=$lng&regionId=$region";
 
     inspect(url);
 

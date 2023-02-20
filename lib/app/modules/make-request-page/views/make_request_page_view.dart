@@ -145,7 +145,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                     ),
                     TextBox(
                       labelText: "Enter community",
-                      controller: controller.landmarkController,
+                      controller: controller.communityController,
                     )
                   ],
                 ),
@@ -284,12 +284,12 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                                     children: [
                                       Text("${obj.name}"),
                                       Text(
-                                        ' GHS ${obj.cost.toString()} / trip',
+                                        ' GHS ${obj.cost.toString()} ',
                                         style: TextStyle(
                                             fontWeight: FontWeight.bold,
                                             color: Colors.black54),
                                       ),
-                                      Text('${obj.volume.toString()} cbm')
+                                      Text('per trip')
                                     ],
                                   ),
                                   groupValue: obj.id,

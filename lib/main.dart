@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -10,6 +11,7 @@ import 'package:sizer/sizer.dart';
 
 import 'app/routes/app_pages.dart';
 import 'core/constants.dart';
+import 'firebase_options.dart';
 
 // main() async {
 //   await GetStorage.init();
@@ -44,7 +46,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
   await GetStorage.init();
-
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   // runApp(
   //   DevicePreview(
   //     enabled: !kReleaseMode,

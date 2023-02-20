@@ -1,33 +1,33 @@
 {
   "project_info": {
-    "project_number": "373487309327",
-    "project_id": "icesspool-3fa23",
-    "storage_bucket": "icesspool-3fa23.appspot.com"
+    "project_number": "137742446645",
+    "project_id": "icesspool-v2",
+    "storage_bucket": "icesspool-v2.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:373487309327:android:36bc0b02a90fc528ed097a",
+        "mobilesdk_app_id": "1:137742446645:android:3fdf4848221b1290cd417c",
         "android_client_info": {
           "package_name": "com.icesspool.app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "373487309327-on7ht10ckpcdnve92bdnkuhlu4blov14.apps.googleusercontent.com",
+          "client_id": "137742446645-gm2lsfgsn9dnlv950629hhh1kietlit0.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAfVMbO06VCW9SHin3QfAIZWOXwnqj_TLU"
+          "current_key": "AIzaSyDUjxYGNOxCNLWy5vCDefQe4VLiLkLZEqQ"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "373487309327-on7ht10ckpcdnve92bdnkuhlu4blov14.apps.googleusercontent.com",
+              "client_id": "137742446645-gm2lsfgsn9dnlv950629hhh1kietlit0.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

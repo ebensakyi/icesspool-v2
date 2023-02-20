@@ -136,7 +136,7 @@ class MakeRequestView extends GetView<MakeRequestPageController> {
                     ),
                     TextBox(
                       labelText: "Enter location detail/landmark",
-                      controller: controller.landmarkController,
+                      controller: controller.communityController,
                     )
                   ],
                 ),

@@ -28,7 +28,7 @@ class MakeRequestPageController extends GetxController {
   final accuracy = "".obs;
   final clientNameController = TextEditingController();
   final phoneNumberController = TextEditingController();
-  final landmarkController = TextEditingController();
+  final communityController = TextEditingController();
   final tripsNumberController = TextEditingController();
   final selectedToiletRequestType = "".obs;
   final selectedWaterRequestType = "".obs;
@@ -234,22 +234,24 @@ class MakeRequestPageController extends GetxController {
   }
 
   void makeRequest() async {
-    inspect(selectedCost.value);
-    var trips =
-        tripsNumberController.text == "" ? 1 : tripsNumberController.text;
+    inspect(tripsNumberController.text);
+    var trips = tripsNumberController.text == ""
+        ? 1
+        : int.parse(tripsNumberController.text);
     int unitCost =
         int.parse(selectedCost.value.toString()) * int.parse(trips.toString());
     var uuid = await generateId();
     var data = {
       "id": uuid,
       "clientId": 1, //box.read(Constants.USER_ID),
-      "landMark": landmarkController.text,
+      "community": communityController.text,
       "clientName": clientNameController.text,
       "gpsAccuracy": accuracy.value,
       "lat": latitude.value,
       "lng": longitude.value,
       "truckClass": 1,
-      "trips": tripsNumberController.text,
+      "requestTypeId": int.parse(selectedToiletRequestType.value),
+      "trips": trips,
       "actualTotalCost": selectedCost.value,
       "unitCost": unitCost,
     };

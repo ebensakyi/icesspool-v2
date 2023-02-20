@@ -44,40 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD-TKStHs1tVezSqI5G28vEGtcfHZUdy_4',
-    appId: '1:373487309327:web:f7240945dc4d43f8ed097a',
-    messagingSenderId: '373487309327',
-    projectId: 'icesspool-3fa23',
-    authDomain: 'icesspool-3fa23.firebaseapp.com',
-    storageBucket: 'icesspool-3fa23.appspot.com',
-    measurementId: 'G-DKPCZDV4N5',
+    apiKey: 'AIzaSyD26hgTlyRJRGjXtEgzu_NfrAxJMwKlpVo',
+    appId: '1:137742446645:web:3767ff530dade669cd417c',
+    messagingSenderId: '137742446645',
+    projectId: 'icesspool-v2',
+    authDomain: 'icesspool-v2.firebaseapp.com',
+    storageBucket: 'icesspool-v2.appspot.com',
+    measurementId: 'G-6VGC7511BT',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAfVMbO06VCW9SHin3QfAIZWOXwnqj_TLU',
-    appId: '1:373487309327:android:36bc0b02a90fc528ed097a',
-    messagingSenderId: '373487309327',
-    projectId: 'icesspool-3fa23',
-    storageBucket: 'icesspool-3fa23.appspot.com',
+    apiKey: 'AIzaSyDUjxYGNOxCNLWy5vCDefQe4VLiLkLZEqQ',
+    appId: '1:137742446645:android:3fdf4848221b1290cd417c',
+    messagingSenderId: '137742446645',
+    projectId: 'icesspool-v2',
+    storageBucket: 'icesspool-v2.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAz69o-jjnR4ZXj_eZgdl4OfCbCAngGnxU',
-    appId: '1:373487309327:ios:9325ab62400ab9b4ed097a',
-    messagingSenderId: '373487309327',
-    projectId: 'icesspool-3fa23',
-    storageBucket: 'icesspool-3fa23.appspot.com',
-    iosClientId: '373487309327-t9o6vs69fa2d0t95noh6tk5o7m54ldum.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBF_OKBkQ0FvTicioek5JFGy9d3cDzwpsI',
+    appId: '1:137742446645:ios:5539f91b243bfd4ecd417c',
+    messagingSenderId: '137742446645',
+    projectId: 'icesspool-v2',
+    storageBucket: 'icesspool-v2.appspot.com',
+    iosClientId: '137742446645-0tnvntqrkb27pp3o6j8e3ruhe077s0tk.apps.googleusercontent.com',
     iosBundleId: 'com.icesspool.moobile.icesspoolMobilev2',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAz69o-jjnR4ZXj_eZgdl4OfCbCAngGnxU',
-    appId: '1:373487309327:ios:9325ab62400ab9b4ed097a',
-    messagingSenderId: '373487309327',
-    projectId: 'icesspool-3fa23',
-    storageBucket: 'icesspool-3fa23.appspot.com',
-    iosClientId: '373487309327-t9o6vs69fa2d0t95noh6tk5o7m54ldum.apps.googleusercontent.com',
+    apiKey: 'AIzaSyBF_OKBkQ0FvTicioek5JFGy9d3cDzwpsI',
+    appId: '1:137742446645:ios:5539f91b243bfd4ecd417c',
+    messagingSenderId: '137742446645',
+    projectId: 'icesspool-v2',
+    storageBucket: 'icesspool-v2.appspot.com',
+    iosClientId: '137742446645-0tnvntqrkb27pp3o6j8e3ruhe077s0tk.apps.googleusercontent.com',
     iosBundleId: 'com.icesspool.moobile.icesspoolMobilev2',
   );
 }
